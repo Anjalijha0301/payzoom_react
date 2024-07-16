@@ -70,7 +70,6 @@ import AdTransactionView from "./View/Ad/AdTransactionView";
 import AsmTransactionView from "./View/asm/AsmTransactionView";
 import ApiTransactionView from "./View/api/ApiTransactionView";
 
-// import { Crisp } from "crisp-sdk-web";
 import { useEffect } from "react";
 import AdminRiskView from "./View/AdminRiskView";
 import AdminPgOrders from "./View/admin/prabhu-transfer/pg-orders/AdminPgOrders";
