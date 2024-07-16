@@ -31,7 +31,7 @@ const LandingPageIntro = () => {
                   className="landing-bg_main_font"
                   style={{ textAlign: env === "MoneyOddr" ? "center" : "left" }}
                 >
-                  Welcome To
+                  Welcome To habibi
                 </div>
                 <div 
                 className="landing-bg_biggpay_font">
