@@ -17,16 +17,16 @@ const PrivacyPolicyView = () => {
           <Box sx={{ mt: 3 }}>
             <div>
               <p className="landing-bg_para">
-                Mobifast India Limited (
-                <strong>“Mobifast”, “we”, “us”, “our”</strong>), respects every
-                individual’s right to privacy and it is our endeavour to protect
-                their personal and Sensitive personal data or information
-                (defined below).
+                PaisaKart India Limited (
+                <strong>“PaisaKart”, “we”, “us”, “our”</strong>), respects
+                every individual’s right to privacy and it is our endeavour to
+                protect their personal and Sensitive personal data or
+                information (defined below).
               </p>
               <p className="landing-bg_para">
                 This Privacy Policy (<strong>“Policy”</strong>) applies to all
-                visitors (i.e. those who do not have an Account with Mobifast)
-                and users (i.e. those who have an Account with Mobifast)
+                visitors (i.e. those who do not have an Account with PaisaKart)
+                and users (i.e. those who have an Account with PaisaKart)
                 (collectively referred to as
                 <strong>“User”</strong>) who share their personal and Sensitive
                 personal data with us, while visiting, accessing, browsing and
@@ -39,7 +39,7 @@ const PrivacyPolicyView = () => {
                 treat your information.
               </p>
               <p className="landing-bg_para">
-                The User acknowledges that this Policy is a part of Mobifast’s
+                The User acknowledges that this Policy is a part of PaisaKart’s
                 <strong>Terms &amp; Conditions available at</strong>
                 <a href="/terms&condition">Terms &amp; Conditions</a> and all
                 terms defined in the Terms of Use have the same meaning here in
@@ -52,7 +52,7 @@ const PrivacyPolicyView = () => {
                 account with us on our Website.
               </p>
               <p className="landing-bg_para">
-                Mobifast reserves its right to modify, alter, and update this
+                PaisaKart reserves its right to modify, alter, and update this
                 Policy at any time, with or without prior notice. Although,
                 Users shall be notified of material changes through their
                 registered email address or any other mode of communication
@@ -62,8 +62,9 @@ const PrivacyPolicyView = () => {
                 modification, amendment, alteration or change of this Policy,
                 irrespective of whether notice was sent to the User or published
                 on the Website, such User is hereby deemed to provide consent to
-                this Policy and Mobifast’s other Policies and practices existing
-                at the time of visiting, accessing and/or using the Website.
+                this Policy and PaisaKart’s other Policies and practices
+                existing at the time of visiting, accessing and/or using the
+                Website.
               </p>
 
               <div className="landing-bg_para">
@@ -177,7 +178,7 @@ const PrivacyPolicyView = () => {
                 time of creation of their Account on the Website.
               </p>
               <p className="landing-bg_para">
-                Mobifast presumes adequate and lawful parental consent in case
+                PaisaKart presumes adequate and lawful parental consent in case
                 the Personal Information or Sensitive personal data or
                 information is shared by a User under the age of 18 years.
               </p>
@@ -320,9 +321,9 @@ const PrivacyPolicyView = () => {
                 where such disclosure is (i) obligated by law, (ii) requested by
                 a lawfully authorized government authority, (iii) pursuant to a
                 judicial decree, (iv) for enforcing and protecting the legal
-                rights of Mobifast or others’, (v) for seeking any relief, (vi)
-                for defending any charge, (vii) for opposing any claim, (viii)
-                for enforcing this Policy or our Terms of Use, (ix) for
+                rights of PaisaKart or others’, (v) for seeking any relief,
+                (vi) for defending any charge, (vii) for opposing any claim,
+                (viii) for enforcing this Policy or our Terms of Use, (ix) for
                 obtaining any legal advice. We also reserve our right to
                 disclose, share or transfer your Personal Information or
                 Sensitive personal data or information to a third party due to
@@ -396,16 +397,16 @@ const PrivacyPolicyView = () => {
                 <h3 className="h5">Mailers</h3>
               </div>
               <p className="landing-bg_para">
-                Mobifast may send direct mailers to the User at the email
+                PaisaKart may send direct mailers to the User at the email
                 address given by the User. The User has the option to opt-out of
                 this direct mailer by way of links provided at the bottom of
-                each mailer or any other means as Mobifast deems appropriate.
-                Mobifast respects every User’s privacy and in the event that
-                User chooses to not receive such mailers, Mobifast will take all
-                steps to remove the User from the list. If a User wants to
+                each mailer or any other means as PaisaKart deems appropriate.
+                PaisaKart respects every User’s privacy and in the event that
+                User chooses to not receive such mailers, PaisaKart will take
+                all steps to remove the User from the list. If a User wants to
                 remove his/her/it’s contact information from all mailing lists
                 and newsletters, the same can be done through “Profile” page of
-                his/her/it’s account with Mobifast.
+                his/her/it’s account with PaisaKart.
               </p>
 
               <div className="landing-bg_para">
@@ -430,7 +431,7 @@ const PrivacyPolicyView = () => {
                 April 6, 2018, all Users, including system participants, service
                 providers, intermediaries, payment gateways, third party vendors
                 and other entities in the payments ecosystem, who are retained
-                or engaged by Mobifast for providing payment services shall
+                or engaged by PaisaKart for providing payment services shall
                 mandatorily store entire Payment Data in systems located only in
                 India. Notwithstanding the above, for cross border transaction
                 data, consisting of a foreign component and a domestic

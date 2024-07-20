@@ -68,7 +68,10 @@ const AdminWalletBalanceComponent = ({
       (res) => {
         const data = res?.data?.data;
          
-        setWalletData((prevData)=>prevData?.map((item)=>item.name==="API Balances"?{...item,"balance":data}:item));
+        setWalletData((prevData)=>
+          prevData?.map((item)=>
+            item.name==="API Balances"?{...item,"balance":data}:item));
+      
 
         // const newData = [...walletData];
         // let amount = 0;
