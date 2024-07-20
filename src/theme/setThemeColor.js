@@ -50,7 +50,7 @@ export const whiteColor = () => {
 
 // user icon bg color change functions . . . .
 export const getUserColor = (role) => {
-  if (process.env.REACT_APP_TITLE === "ImpsGuru") {
+  if (process.env.REACT_APP_TITLE === "PaisaKart") {
     if (role === "Asm") {
       return "#9f86c0";
     } else if (role === "Ad") {
