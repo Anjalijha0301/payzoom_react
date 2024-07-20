@@ -185,7 +185,7 @@ const Footer = () => {
                 mt: { lg: 0, md: 0, sm: 5, xs: 5 },
               }}
             >
-              <div className="footer-head-text">Company</div>
+              <div className="footer-head-text">Company's</div>
               <div
                 className="text-style"
                 onClick={() => {
