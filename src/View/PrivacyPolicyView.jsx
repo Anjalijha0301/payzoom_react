@@ -17,7 +17,7 @@ const PrivacyPolicyView = () => {
           <Box sx={{ mt: 3 }}>
             <div>
               <p className="landing-bg_para">
-                PaisaKart India Limited (
+                Jab Wallet Pvt. Ltd. (
                 <strong>“PaisaKart”, “we”, “us”, “our”</strong>), respects
                 every individual’s right to privacy and it is our endeavour to
                 protect their personal and Sensitive personal data or

@@ -1015,7 +1015,7 @@ const Terms = () => {
                       PaisaKart website(s) or by any other reasonable means.
                       Except as otherwise set forth herein, notice to PaisaKart
                       must be sent by courier or registered post to the Legal
-                      Department, PaisaKart Solutions Pvt. Ltd., 1st Floor,
+                      Department, Jab Wallet Pvt. Ltd., 1st Floor,
                       B1/A5, Mohan Cooperative Industrial Estate, New Delhi -
                       110044, India.
                     </div>
