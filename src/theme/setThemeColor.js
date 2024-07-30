@@ -62,6 +62,7 @@ export const getUserColor = (role) => {
     } else if (role === "Api") {
       return "#ff9800";
     }
+    
   } else if (process.env.REACT_APP_TITLE === "PaisaKart") {
     if (role === "Asm") {
       return "#f48f26";

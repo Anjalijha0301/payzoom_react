@@ -24,9 +24,9 @@ const Terms = () => {
                 <strong>(“Services”)</strong>. These Terms are legally binding
                 and govern the use of our website, our mobile application, our
                 API and other properties collectively called as the
-                <strong>“PaisaKart Platform”</strong> or
+                <strong>“PaisaKart"</strong> or
                 <strong> “Platform”</strong>
-                created by Jab Wallets Pvt. Ltd., a company incorporated
+                created by PaisaKart Solutions Pvt. Ltd., a company incorporated
                 under the laws of India, with its registered office at Plot No.
                 8 Pocket, 6, Sector 22, Rohini, Delhi, 110086
                 <strong>(“PaisaKart” or “Company”)</strong>.

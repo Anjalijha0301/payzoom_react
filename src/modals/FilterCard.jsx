@@ -135,7 +135,7 @@ const FilterCard = ({
             adArray.map((item) => {
               return {
                 id: item.id,
-                name: item.establishment,
+                name: item.establishment !== null? item.establishment:"",
               };
             })
         );
