@@ -231,10 +231,10 @@ const Footer = () => {
                 {process.env.REACT_APP_TITLE === "ImpsGuru"
                   ? "MobiFast"
                   : process.env.REACT_APP_TITLE === "PaisaKart"
-                  ? "PEHEKART WALLET (OPC)"
+                  ? "Jab Wallet"
                   : process.env.REACT_APP_TITLE}
                 <span className="mx-1">
-                  Solutions Pvt Ltd. All Rights Reserve
+                   Pvt Ltd. All Rights Reserve
                 </span>
               </Typography>
               <Typography sx={{ color: "#fff", fontSize: "14px", mt: 0.5 }}>
