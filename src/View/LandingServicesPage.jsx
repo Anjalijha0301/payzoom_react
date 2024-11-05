@@ -4,11 +4,17 @@ import {
   aadharAtm_img,
   api,
   irctc_img,
+  microATM,
+  moBBPS,
   mobileR_img,
   mt,
   qrCode_img,
 } from "../iconsImports";
-import { primaryColor, getEnv } from "../theme/setThemeColor";
+import {
+  getActiveColor,
+  getEnv,
+  getSecondaryColor,
+} from "../theme/setThemeColor";
 import StayCurrentPortraitIcon from "@mui/icons-material/StayCurrentPortrait";
 import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
 import AodIcon from "@mui/icons-material/Aod";
@@ -72,7 +78,7 @@ const LandingServicesPage = () => {
             <span className="icon">
               <StayCurrentPortraitIcon
                 sx={{
-                  // color: secondaryColor(),
+                  // color: getSecondaryColor(),
                   fontSize: "2.2rem",
                 }}
                 className="actual-icon"
@@ -94,7 +100,7 @@ const LandingServicesPage = () => {
             <span className="icon">
               <SatelliteAltIcon
                 sx={{
-                  // color: secondaryColor(),
+                  // color: getSecondaryColor(),
                   fontSize: "2.2rem",
                 }}
                 className="actual-icon"
@@ -104,7 +110,7 @@ const LandingServicesPage = () => {
             <Typography className="box-para justify-content">
               With
               <span style={{ marginRight: "3px", marginLeft: "3px" }}>
-                {envName === "MoneyOddr" ? "MoneyOddR" : "PaisaKart"}
+                {envName === "MoneyOddr" ? "MoneyOddR" : "PayZoom"}
               </span>
               merchant app, choose from a variety of operators like Airtel DTH,
               Dish TV, Videocon D2h.
@@ -118,7 +124,7 @@ const LandingServicesPage = () => {
             <span className="icon">
               <AodIcon
                 sx={{
-                  // color: secondaryColor(),
+                  // color: getSecondaryColor(),
                   fontSize: "2.2rem",
                 }}
                 className="actual-icon"
@@ -141,7 +147,7 @@ const LandingServicesPage = () => {
             <span className="icon">
               <TrainIcon
                 sx={{
-                  // color: secondaryColor(),
+                  // color: getSecondaryColor(),
                   fontSize: "2.2rem",
                 }}
                 className="actual-icon"
@@ -154,11 +160,173 @@ const LandingServicesPage = () => {
               Money Transfer from our portal
             </Typography>
           </Grid>
-          {/* <Grid item md={12}>
-            {" "}
-            <img src={braj} alt="" />
-          </Grid> */}
         </Grid>
+        {/* <Grid container maxWidth="lg" className="bottom2top">
+          <Grid
+            md={6}
+            lg={6}
+            sm={12}
+            xs={12}
+            sx={{ mt: { md: "0", sm: "30px", xs: "30px" } }}
+          >
+            <span
+              className="landingPageHeadings"
+              style={{
+                textAlign: "left",
+                display: "flex",
+                justifyContent: "start",
+              }}
+            >
+              Bill Payments & Recharges
+            </span>
+            <Box
+              sx={{
+                width: "60px",
+                height: "10px",
+                backgroundColor: "#4E5555",
+              }}
+            ></Box>
+            <Box
+              className="landing-bg_para"
+              sx={{
+                textAlign: "justify",
+              }}
+            >
+              Earn more by doing DTH/ Mobile recharges, Utility bill payments,
+              for your customers easily and quickly of more than 150 companies.
+              Now help your customers by making bill payments and recharge at
+              the snap of your fingertips with the help of the {getEnv()}{" "}
+              Merchant App. {getEnv()} enables any retailer to make any recharge
+              and bill payments associated with Electricity, Water, Gas, DTH,
+              and Telecomm to name a few. Thereby, {getEnv()} converts any shop
+              into a one-stop solution for any of the customer needs associating
+              with bill payment and recharge.
+            </Box>
+          </Grid>
+          <Grid
+            // className="reveal"
+            lg={6}
+            md={6}
+            sx={{ display: { md: "block", sm: "none", xs: "none" } }}
+          >
+            <img
+              src={mobile}
+              alt=" Bill Payments & Recharges"
+              width="100%"
+            ></img>
+          </Grid>
+        </Grid> */}
+
+        {/* <Grid container maxWidth="lg" className="sectionBreake reveal2"> */}
+        {/* <Grid container maxWidth="lg" className="bottom2top">
+          <Grid
+            lg={6}
+            md={6}
+            sx={{ display: { md: "block", sm: "none", xs: "none" } }}
+          >
+            <img src={dth_img} alt="Mobile recharge" width="80%"></img>
+          </Grid>
+          <Grid md={6} lg={6} sm={12} xs={12}>
+            <span
+              className="landingPageHeadings"
+              style={{
+                textAlign: "left",
+                display: "flex",
+                justifyContent: "start",
+              }}
+            >
+              DTH Recharge
+            </span>
+            <Box
+              style={{
+                width: "60px",
+                height: "10px",
+                backgroundColor: "#4E5555",
+              }}
+            ></Box>
+            <div className="landing-bg_para" style={{ textAlign: "justify" }}>
+              Now, don’t let anything come in between your customer and their
+              entertainment. With the {getEnv()} merchant app, choose from a
+              variety of operators like Airtel DTH, Dish TV, Videocon D2h, and
+              Tata sky to name a few, and select the best package for your
+              customer depending on your customer’s needs. So choose {getEnv()}
+              for doing DTH recharge anytime and anywhere.
+            </div>
+          </Grid>
+        </Grid> */}
+        {/* <Grid container maxWidth="lg" className="bottom2top">
+          <Grid md={6} lg={6} sm={12} xs={12}>
+            <span
+              className="landingPageHeadings"
+              style={{
+                textAlign: "left",
+                display: "flex",
+                justifyContent: "start",
+              }}
+            >
+              Utility Recharge
+            </span>
+            <Box
+              style={{
+                width: "60px",
+                height: "10px",
+                backgroundColor: "#4E5555",
+              }}
+            ></Box>
+            <div className="landing-bg_para" style={{ textAlign: "justify" }}>
+              Gone are the days when anyone used to stand in a long queue,
+              waiting for hours just for filling their monthly bills namely
+              Electricity, Water, and Gas. With the {getEnv()} merchant app in
+              your mobile, you can ease your customer’s life and save their time
+              by giving them the option of filling their monthly bill/ dues
+              through your smartphone, {getEnv()} merchant app, and most
+              importantly through you !
+            </div>
+          </Grid>
+          <Grid
+            lg={6}
+            md={6}
+            sx={{ display: { md: "block", sm: "none", xs: "none" } }}
+          >
+            <img src={utility_img} alt="Mobile recharge" width="80%"></img>
+          </Grid>
+        </Grid> */}
+        {/* <Grid container maxWidth="lg" className="bottom2top">
+          <Grid
+            lg={6}
+            md={6}
+            sx={{ display: { md: "block", sm: "none", xs: "none" } }}
+          >
+            <img src={irctc_img} alt="irctc " width="80%"></img>
+          </Grid>
+          <Grid md={6} lg={6} sm={12} xs={12}>
+            <span
+              className="landingPageHeadings"
+              style={{
+                textAlign: "left",
+                display: "flex",
+                justifyContent: "start",
+              }}
+            >
+              IRCTC Ticket Booking
+            </span>
+            <Box
+              style={{
+                width: "60px",
+                height: "10px",
+                backgroundColor: "#4E5555",
+              }}
+            ></Box>
+            <div className="landing-bg_para" style={{ textAlign: "justify" }}>
+              We are proud to say that we are one of the few vendors who are
+              authorized from IRCTC to book train tickets. Now you can easily
+              book tickets online for any train, class, or destination. With us,
+              you don’t need to worry about the status of your booking because
+              our service is highly fast, safe, simple and reliable. So before
+              you miss on to your favorite berth, download our app today !
+            </div>
+          </Grid>
+        </Grid> */}
 
         <Grid container maxWidth="lg" className="bottom2top">
           <Grid
@@ -199,7 +367,7 @@ const LandingServicesPage = () => {
                 sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}
               >
                 <Button
-                  className="button-red"
+                  className="primary-button"
                   onClick={() => {
                     navigate("/sign-up");
                   }}
@@ -225,7 +393,7 @@ const LandingServicesPage = () => {
                   width: "60px",
                   height: "10px",
                   backgroundColor:
-                    envName === "MoneyOddr" ? "#01A0E2" : primaryColor(),
+                    envName === "MoneyOddr" ? "#01A0E2" : getActiveColor(),
                 }}
               ></Box>
               <div className="landing-bg_para" style={{ textAlign: "justify" }}>
@@ -241,7 +409,7 @@ const LandingServicesPage = () => {
                 sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}
               >
                 <Button
-                  className="button-red"
+                  className="primary-button"
                   onClick={() => {
                     navigate("/sign-up");
                   }}
@@ -261,6 +429,7 @@ const LandingServicesPage = () => {
                 textAlign: "left",
                 display: "flex",
                 justifyContent: "start",
+                color: getSecondaryColor(),
               }}
             >
               My QR/UPI
@@ -269,14 +438,11 @@ const LandingServicesPage = () => {
               style={{
                 width: "60px",
                 height: "10px",
-                backgroundColor:
-                  envName === "MoneyOddr" ? "#01A0E2" : primaryColor(),
+                backgroundColor: getActiveColor(),
               }}
             ></Box>
             <div className="landing-bg_para" style={{ textAlign: "justify" }}>
-              <span style={{ marginRight: "10px" }}>
-                {getEnv() === "MoneyOddr" ? "MoneyOddR" : "PaisaKart"}
-              </span>
+              <span style={{ marginRight: "10px" }}>PayZoom</span>
               brings you one more attractive option of increasing your options
               of accepting payments in the form of QR codes or UPI. Basically QR
               code is a contactless payment service that enables your customers
@@ -286,7 +452,7 @@ const LandingServicesPage = () => {
             </div>
             <Box sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}>
               <Button
-                className="button-red"
+                className="primary-button"
                 onClick={() => {
                   navigate("/sign-up");
                 }}
@@ -311,93 +477,49 @@ const LandingServicesPage = () => {
           >
             <img src={mt} alt="irctc" width="80%"></img>
           </Grid>
-          {envName === "MoneyOddr" ? (
-            <Grid md={6} lg={6} sm={12} xs={12}>
-              <span
-                className="landingPageHeadings"
-                style={{
-                  textAlign: "left",
-                  display: "flex",
-                  justifyContent: "start",
+
+          <Grid md={6} lg={6} sm={12} xs={12}>
+            <span
+              className="landingPageHeadings"
+              style={{
+                textAlign: "left",
+                display: "flex",
+                justifyContent: "start",
+                color: getSecondaryColor(),
+              }}
+            >
+              Money Transfer
+            </span>
+            <Box
+              style={{
+                width: "60px",
+                height: "10px",
+                backgroundColor: getActiveColor(),
+              }}
+            ></Box>
+            <div
+              className="landing-bg_para"
+              style={{ textAlign: "justify", color: "#fff" }}
+            >
+              At {getEnv()} we understand your concerns and try to come up with
+              solutions for addressing those issues. We realized that sending
+              money to your friends and family was still a difficult task for
+              many people and for solving that problem, we bring you the
+              <span className="mx-1">{getEnv()}</span> money transfer feature.
+              This can be used to send money anywhere across India and Nepal. It
+              is highly safe, secure, and reliable
+            </div>
+            <Box sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}>
+              <Button
+                className="primary-button"
+                onClick={() => {
+                  navigate("/sign-up");
                 }}
               >
-                Domestic Money Transfer
-              </span>
-              <Box
-                style={{
-                  width: "60px",
-                  height: "10px",
-                  backgroundColor:
-                    envName === "MoneyOddr" ? "#01A0E2" : primaryColor(),
-                }}
-              ></Box>
-              <div className="landing-bg_para" style={{ textAlign: "justify" }}>
-                Money Transfer is a facility through which money can be easily
-                transferred to any account across india instantly without
-                visiting the bank branch. This Service was introduced to help
-                and support the unorganised and rural areas where the majority
-                of the population are not aware of the banking system. With this
-                facility you can help your local population to transfer their
-                money to their designated account and earn attractive
-                commission.
-                <Box
-                  sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}
-                >
-                  <Button
-                    className="button-red"
-                    onClick={() => {
-                      navigate("/sign-up");
-                    }}
-                  >
-                    Signup now
-                  </Button>
-                </Box>
-              </div>
-            </Grid>
-          ) : (
-            <Grid md={6} lg={6} sm={12} xs={12}>
-              <span
-                className="landingPageHeadings"
-                style={{
-                  textAlign: "left",
-                  display: "flex",
-                  justifyContent: "start",
-                }}
-              >
-                Money Transfer
-              </span>
-              <Box
-                style={{
-                  width: "60px",
-                  height: "10px",
-                  backgroundColor:
-                    envName === "MoneyOddr" ? "#01A0E2" : primaryColor(),
-                }}
-              ></Box>
-              <div className="landing-bg_para" style={{ textAlign: "justify" }}>
-                At {getEnv()} we understand your concerns and try to come up
-                with solutions for addressing those issues. We realized that
-                sending money to your friends and family was still a difficult
-                task for many people and for solving that problem, we bring you
-                the
-                <span className="mx-1">{getEnv()}</span> money transfer feature.
-                This can be used to send money anywhere across India and Nepal.
-                It is highly safe, secure, and reliable
-              </div>
-              <Box
-                sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}
-              >
-                <Button
-                  className="button-red"
-                  onClick={() => {
-                    navigate("/sign-up");
-                  }}
-                >
-                  Signup now
-                </Button>
-              </Box>
-            </Grid>
-          )}
+                Signup now
+              </Button>
+            </Box>
+          </Grid>
         </Grid>
         <Grid container maxWidth="lg" className="bottom2top">
           {envName === "MoneyOddr" ? (
@@ -417,7 +539,7 @@ const LandingServicesPage = () => {
                   width: "60px",
                   height: "10px",
                   backgroundColor:
-                    envName === "MoneyOddr" ? "#01A0E2" : primaryColor(),
+                    envName === "MoneyOddr" ? "#01A0E2" : getActiveColor(),
                 }}
               ></Box>
               <div className="landing-bg_para" style={{ textAlign: "justify" }}>
@@ -437,7 +559,7 @@ const LandingServicesPage = () => {
                 sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}
               >
                 <Button
-                  className="button-red"
+                  className="primary-button"
                   onClick={() => {
                     navigate("/sign-up");
                   }}
@@ -454,6 +576,7 @@ const LandingServicesPage = () => {
                   textAlign: "left",
                   display: "flex",
                   justifyContent: "start",
+                  color: getSecondaryColor(),
                 }}
               >
                 Aadhar ATM
@@ -463,10 +586,13 @@ const LandingServicesPage = () => {
                   width: "60px",
                   height: "10px",
                   backgroundColor:
-                    envName === "MoneyOddr" ? "#01A0E2" : primaryColor(),
+                    envName === "MoneyOddr" ? "#01A0E2" : getActiveColor(),
                 }}
               ></Box>
-              <div className="landing-bg_para" style={{ textAlign: "justify" }}>
+              <div
+                className="landing-bg_para"
+                style={{ textAlign: "justify", color: "#fff" }}
+              >
                 Are you fed up with the lengthy lines, computer issues, and lack
                 of cash at your local bank branch. But stop worrying since
                 {getEnv()} has a feature called Aadhar ATM that will instantly
@@ -478,7 +604,7 @@ const LandingServicesPage = () => {
                 sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}
               >
                 <Button
-                  className="button-red"
+                  className="primary-button"
                   onClick={() => {
                     navigate("/sign-up");
                   }}
@@ -522,7 +648,7 @@ const LandingServicesPage = () => {
                   width: "60px",
                   height: "10px",
                   backgroundColor:
-                    envName === "MoneyOddr" ? "#01A0E2" : primaryColor(),
+                    envName === "MoneyOddr" ? "#01A0E2" : getActiveColor(),
                 }}
               ></Box>
               <div className="landing-bg_para" style={{ textAlign: "justify" }}>
@@ -535,7 +661,7 @@ const LandingServicesPage = () => {
                 sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}
               >
                 <Button
-                  className="button-red"
+                  className="primary-button"
                   onClick={() => {
                     navigate("/sign-up");
                   }}
@@ -552,6 +678,7 @@ const LandingServicesPage = () => {
                   textAlign: "left",
                   display: "flex",
                   justifyContent: "start",
+                  color: getSecondaryColor(),
                 }}
               >
                 Mobile Recharge
@@ -560,11 +687,13 @@ const LandingServicesPage = () => {
                 style={{
                   width: "60px",
                   height: "10px",
-                  backgroundColor:
-                    envName === "MoneyOddr" ? "#01A0E2" : primaryColor(),
+                  backgroundColor: getActiveColor(),
                 }}
               ></Box>
-              <div className="landing-bg_para" style={{ textAlign: "justify" }}>
+              <div
+                className="landing-bg_para"
+                style={{ textAlign: "justify", color: "#fff" }}
+              >
                 Earn more by doing DTH/ Mobile recharges, Utility bill payments,
                 for your customers easily and quickly of more than 150
                 companies. Now help your customers by making bill payments and
@@ -579,7 +708,7 @@ const LandingServicesPage = () => {
                 sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}
               >
                 <Button
-                  className="button-red"
+                  className="primary-button"
                   onClick={() => {
                     navigate("/sign-up");
                   }}
@@ -598,6 +727,7 @@ const LandingServicesPage = () => {
                 textAlign: "left",
                 display: "flex",
                 justifyContent: "start",
+                color: getSecondaryColor(),
               }}
             >
               API banking
@@ -606,10 +736,13 @@ const LandingServicesPage = () => {
               style={{
                 width: "60px",
                 height: "10px",
-                backgroundColor: primaryColor(),
+                backgroundColor: getActiveColor(),
               }}
             ></Box>
-            <div className="landing-bg_para" style={{ textAlign: "justify" }}>
+            <div
+              className="landing-bg_para"
+              style={{ textAlign: "justify", color: "#fff" }}
+            >
               An intuitive, simple-to-implement, and iterative modern API
               banking stack. has been built with scalability and dependability
               in mind.An great banking tool, API banking simplifies the process
@@ -619,7 +752,7 @@ const LandingServicesPage = () => {
             </div>
             <Box sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}>
               <Button
-                className="button-red"
+                className="primary-button"
                 onClick={() => {
                   navigate("/sign-up");
                 }}
@@ -636,6 +769,117 @@ const LandingServicesPage = () => {
             <img src={api} alt="Mobile recharge" width="80%"></img>
           </Grid>
         </Grid>
+        {envName === "MoneyOddr" && (
+          <Grid container maxWidth="lg" className="bottom2top">
+            <Grid
+              lg={6}
+              md={6}
+              sx={{ display: { md: "block", sm: "none", xs: "none" } }}
+            >
+              <img src={microATM} alt="Mobile recharge" width="80%" />
+            </Grid>
+            <Grid md={6} lg={6} sm={12} xs={12}>
+              <span
+                className="landingPageHeadings"
+                style={{
+                  textAlign: "left",
+                  display: "flex",
+                  justifyContent: "start",
+                }}
+              >
+                Micro-ATM
+              </span>
+              <Box
+                style={{
+                  width: "60px",
+                  height: "10px",
+                  backgroundColor:
+                    envName === "MoneyOddr" ? "#01A0E2" : getActiveColor(),
+                }}
+              ></Box>
+              <div className="landing-bg_para" style={{ textAlign: "justify" }}>
+                It is a perfect example of innovation by the fintech industry
+                and Indian banking system. This innovative micro device allows
+                you to offer cash withdrawal, balance enquiries, mini statements
+                and transforming your shop into an ATM. M-ATM is popular in
+                remote area(s) where ATM machines are not available. It is also
+                used by people who need urgent cash but are not able to find the
+                nearby ATM. Become a MoneyOddR’s representative to convert your
+                shop into an ATM and increase your income with attractive
+                commission.
+              </div>
+              <Box
+                sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}
+              >
+                <Button
+                  className="primary-button"
+                  onClick={() => {
+                    navigate("/sign-up");
+                  }}
+                >
+                  Signup now
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        )}
+        {envName === "MoneyOddr" && (
+          <Grid container maxWidth="lg" className="bottom2top">
+            <Grid md={6} lg={6} sm={12} xs={12}>
+              <span
+                className="landingPageHeadings"
+                style={{
+                  textAlign: "left",
+                  display: "flex",
+                  justifyContent: "start",
+                }}
+              >
+                BBPS
+              </span>
+              <Box
+                style={{
+                  width: "60px",
+                  height: "10px",
+                  backgroundColor:
+                    envName === "MoneyOddr" ? "#01A0E2" : getActiveColor(),
+                }}
+              ></Box>
+              <div className="landing-bg_para" style={{ textAlign: "justify" }}>
+                <span style={{ fontWeight: "900" }}>
+                  Bharat Bill Payments System
+                </span>
+                was introduced by RBI to make the bill payments easy and
+                accessible across the country. By this integrated and
+                interoperable service customers can use the facility of bill
+                payment anytime and anywhere irrespective of the geographical
+                location. Customers can find the authorised BBPS outlet nearest
+                to them and can make payments for their bills. Also there are so
+                many modes of payment to make the facility more convenient. By
+                becoming an authorised MoneyOddR’s agent you can serve the
+                people and can earn good income as well.
+              </div>
+              <Box
+                sx={{ display: "flex", justifyContent: "left", mt: 2, mb: 3 }}
+              >
+                <Button
+                  className="primary-button"
+                  onClick={() => {
+                    navigate("/sign-up");
+                  }}
+                >
+                  Signup now
+                </Button>
+              </Box>
+            </Grid>
+            <Grid
+              lg={6}
+              md={6}
+              sx={{ display: { md: "block", sm: "none", xs: "none" } }}
+            >
+              <img src={moBBPS} alt="Mobile recharge" width="60%"></img>
+            </Grid>
+          </Grid>
+        )}
       </Container>
     </div>
   );

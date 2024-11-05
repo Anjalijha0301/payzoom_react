@@ -9,6 +9,7 @@ import { apiErrorToast, okSuccessToast } from "../utils/ToastUtil";
 import { postJsonData } from "../network/ApiController";
 import { useState } from "react";
 import { PATTERNS } from "../utils/ValidationUtil";
+import { blackColor, whiteColor } from "../theme/setThemeColor";
 const style = {
   position: "absolute",
   top: "50%",
@@ -17,7 +18,7 @@ const style = {
   width: "40%",
   bgcolor: "background.paper",
   boxShadow: 24,
-  fontFamily: "Poppins",
+
   height: "max-content",
   overflowY: "scroll",
   p: 2,
@@ -64,12 +65,13 @@ const ForgotPass = ({ refresh }) => {
       }}
     >
       <Button
-        className="otp-hover-purple"
+        // className="otp-hover-purple"
+        variant="text"
         style={{
-          color: "#fff",
           fontSize: "14px",
           textTransform: "capitalize",
           padding: "2px 8px",
+          color: whiteColor(),
         }}
         onClick={handleOpen}
       >

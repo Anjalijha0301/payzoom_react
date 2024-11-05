@@ -1,10 +1,38 @@
-import { Box, Button, Card, Grid } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  Grid,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useEffect } from "react";
-import { joinus, joinus2 } from "../iconsImports";
+import { disti, joinus, joinus2, ret } from "../iconsImports";
 import { useNavigate } from "react-router-dom";
 import { getEnv } from "../theme/setThemeColor";
-
+import CheckIcon from "@mui/icons-material/Check";
+const becomeRetData = [
+  {
+    title: "Attractive Commision",
+    body: "Firstly, it provides a lucrative source of income through attractive commissions on various financial services and transactions. ",
+  },
+  {
+    title: "Customer Expansion",
+    body: " By offering digital banking services including mobile banking and bill payments, you can attract more customers to your store to increase the footfall and potential cross-selling opportunities. ",
+  },
+  {
+    title: "Multiple Services",
+    body: "The convenience factor is undeniable, as you can provide seamless banking services such as account openings, money transfers, and balance inquiries through user-friendly digital platforms.    ",
+  },
+  {
+    title: "Business Branding",
+    body: "By joining as a retailer with us will increase your brand image and credibility which will give you a competitive edge over the traditional retailers by positioning you as a modern and innovative business.",
+  },
+];
 const LandingPartnersPage = () => {
   const envValue = getEnv();
   const navigate = useNavigate();
@@ -12,7 +40,7 @@ const LandingPartnersPage = () => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
-
+  console.log("envValue", envValue);
   return (
     <>
       <div id="our-partners">
@@ -26,7 +54,7 @@ const LandingPartnersPage = () => {
               <div className="landing-bg_main_font">
                 Join
                 <span style={{ marginLeft: "10px", marginRight: "10px" }}>
-                  {getEnv() === "MoneyOddr" ? "MoneyOddR" : "Paisakart"}
+                  {getEnv() === "MoneyOddr" ? "MoneyOddR" : "PayZoom"}
                 </span>
                 Network & Expand your Distributor Business & Earn Extra Income
               </div>
@@ -53,7 +81,7 @@ const LandingPartnersPage = () => {
                 sx={{
                   width: "100px",
                   height: "12px",
-                  backgroundColor: "#dc5f5f",
+                  backgroundColor: "#4E5555",
                 }}
               ></Box> */}
             </Grid>
@@ -69,150 +97,8 @@ const LandingPartnersPage = () => {
           </Grid>
         </Container>
 
-        <div
-          className={
-            envValue === "MoneyOddr" ? "" : "body_Wave_bg sectionBreake"
-          }
-        >
+        <div className="body_Wave_bg sectionBreake">
           <Container maxWidth="lg" sx={{ py: 5 }}>
-            {/* <Grid container>
-              <Grid 
-                lg={4}
-                md={4}
-                sm={12}
-                xs={12}
-                sx={{ display: "flex", justifyContent: "center" }}
-              >
-                <Card
-                  sx={{
-                    width: "90%",
-                    mr: 1,
-                    py: 4,
-                    mt: { lg: 0, md: 0, sm: 3, xs: 3 },
-                    boxShadow:
-                      "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      width: "70px",
-                      margin: "0 auto",
-                      display: "flex",
-                      justifyContent: "center",
-                      height: "70px",
-                      borderRadius: "50%",
-                      backgroundColor: "#dc5f5f36",
-                    }}
-                  >
-                    <StorefrontIcon
-                      sx={{
-                        color: " #dc5f5f",
-                        marginTop: "15px",
-                        fontSize: "3rem",
-                        mr: 2,
-                      }}
-                    />
-                    <span className="landing-bg_main_font">5000+</span>
-                  </Box>
-                  <Box className="landingPageSubHeading" sx={{ mt: 2 }}>
-                    Merchants
-                  </Box>
-                </Card>
-              </Grid>
-              <Grid
-                lg={4}
-                md={4}
-                sm={12}
-                xs={12}
-                sx={{ display: "flex", justifyContent: "center" }}
-              >
-                <Card
-                  sx={{
-                    width: "90%",
-                    mt: { lg: 0, md: 0, sm: 3, xs: 3 },
-                    mr: 1,
-                    py: 4,
-                    boxShadow:
-                      "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      width: "70px",
-                      margin: "0 auto",
-                      display: "flex",
-                      justifyContent: "center",
-                      height: "70px",
-                      borderRadius: "50%",
-                      backgroundColor: "#dc5f5f36",
-                    }}
-                  >
-                    <GroupAddIcon
-                      sx={{
-                        color: "#dc5f5f",
-                        marginTop: "15px",
-                        fontSize: "3rem",
-                        mr: 2,
-                      }}
-                    />
-                    <span className="landing-bg_main_font">11Lakh+</span>
-                  </Box>
-                  <Box className="landingPageSubHeading" sx={{ mt: 2 }}>
-                    Customers
-                  </Box>
-                </Card>
-              </Grid>
-              <Grid
-                lg={4}
-                md={4}
-                sm={12}
-                xs={12}
-                sx={{ display: "flex", justifyContent: "center" }}
-              >
-                <Card
-                  sx={{
-                    width: "90%",
-                    mt: { lg: 0, md: 0, sm: 3, xs: 3 },
-                    mr: 1,
-                    py: 4,
-                    boxShadow:
-                      "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
-                  }}
-                >
-                  <Box
-                    component="div"
-                    sx={{
-                      width: "70px",
-                      margin: "0 auto",
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "center",
-                      height: "70px",
-                      borderRadius: "50%",
-                      backgroundColor: "#dc5f5f36",
-                    }}
-                  >
-                    <ApartmentIcon
-                      sx={{
-                        color: "#dc5f5f",
-                        marginTop: "15px",
-                        fontSize: "3rem",
-                        mr: 2,
-                      }}
-                    />
-                    <div className="landing-bg_main_font">500+</div>
-                  </Box>
-                  <Box
-                    component="div"
-                    className="landingPageSubHeading"
-                    sx={{ mt: 2 }}
-                  >
-                    City
-                  </Box>
-                </Card>
-              </Grid>
-            </Grid> */}
-
             <Grid container xs={12} className="sectionBreake">
               <Grid
                 item
@@ -230,7 +116,7 @@ const LandingPartnersPage = () => {
                 >
                   Why become a
                   <span style={{ marginLeft: "10px", marginRight: "10px" }}>
-                    {getEnv() === "MoneyOddr" ? "MoneyOddR" : "PaisaKart"}
+                    PayZoom
                   </span>
                   Retailer ?
                 </div>
@@ -239,7 +125,7 @@ const LandingPartnersPage = () => {
                   sx={{
                     width: "100px",
                     height: "12px",
-                    backgroundColor: "#dc5f5f",
+                    backgroundColor: "#4E5555",
                   }}
                 ></Box>
                 <div
@@ -263,20 +149,15 @@ const LandingPartnersPage = () => {
                 sx={{ pl: { lg: 3, md: 3, sm: 3, xs: 3 } }}
               >
                 <Card
-                  className="cards"
+                  className="cards "
                   sx={{
                     width: "80%",
-                    height: envValue !== "MoneyOddr" ? "120px" : "auto",
-
+                    height: "auto",
                     ml: 3,
                     px: 2,
                     display: "flex",
                     alignItems: "center",
-                    backgroundColor:
-                      envValue === "MoneyOddr" ? "#202E56" : "#dc5f5f",
                     color: "#fff",
-                    // boxShadow:
-                    //   "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
                   }}
                 >
                   <strong>
@@ -285,10 +166,10 @@ const LandingPartnersPage = () => {
                   </strong>
                 </Card>
                 <Card
-                  className="cards"
+                  className="cards login-background"
                   sx={{
                     width: "80%",
-                    height: envValue !== "MoneyOddr" ? "120px" : "auto",
+                    height: "auto",
 
                     ml: 3,
                     px: 1,
@@ -298,7 +179,7 @@ const LandingPartnersPage = () => {
                     backgroundColor: "#fff",
                     color: "#000",
                     boxShadow:
-                      "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
+                    "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
                   }}
                 >
                   <Box component="div" sx={{ color: "#fff", fontWeight: 600 }}>
@@ -306,19 +187,16 @@ const LandingPartnersPage = () => {
                   </Box>
                 </Card>
                 <Card
-                  className="cards"
+                  className="cards login-background"
                   sx={{
                     width: "80%",
-                    height: envValue !== "MoneyOddr" ? "120px" : "auto",
+                    height: "auto",
                     ml: 3,
                     mt: 3,
                     px: 1,
                     display: "flex",
                     alignItems: "center",
-                    backgroundColor: "#fff",
                     color: "#000",
-                    boxShadow:
-                      "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
                   }}
                 >
                   <Box component="div" sx={{ color: "#fff", fontWeight: 600 }}>
@@ -336,10 +214,10 @@ const LandingPartnersPage = () => {
                 sx={{ pl: { lg: 0, md: 0, sm: 3, xs: 3 } }}
               >
                 <Card
-                  className="cards"
+                  className="cards login-background"
                   sx={{
                     width: "80%",
-                    height: envValue !== "MoneyOddr" ? "120px" : "auto",
+                    height: "auto",
                     ml: 3,
                     mt: 3,
                     display: "flex",
@@ -356,19 +234,16 @@ const LandingPartnersPage = () => {
                   </Box>
                 </Card>
                 <Card
-                  className="cards"
+                  className="cards login-background"
                   sx={{
                     width: "80%",
-                    height: envValue !== "MoneyOddr" ? "120px" : "auto",
+                    height: "auto",
                     ml: 3,
                     mt: 3,
                     px: 1,
                     display: "flex",
                     alignItems: "center",
-                    backgroundColor: "#fff",
                     color: "#000",
-                    boxShadow:
-                      "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
                   }}
                 >
                   <Box component="div" sx={{ color: "#fff", fontWeight: 600 }}>
@@ -378,10 +253,10 @@ const LandingPartnersPage = () => {
                 </Card>
 
                 <Card
-                  className="cards"
+                  className="cards login-background"
                   sx={{
                     width: "80%",
-                    height: envValue !== "MoneyOddr" ? "120px" : "auto",
+                    height: "auto",
                     ml: 3,
                     px: 1,
                     display: "flex",
@@ -405,7 +280,7 @@ const LandingPartnersPage = () => {
 
         <div
           style={{
-            backgroundColor: envValue === "MoneyOddr" ? "#e8f4fa" : "#CDC9FF",
+            backgroundColor: "#CDC9FF",
           }}
         >
           <Container maxWidth="lg" sx={{ pb: 10 }}>
@@ -429,7 +304,7 @@ const LandingPartnersPage = () => {
                   sx={{
                     width: "100px",
                     height: "12px",
-                    backgroundColor: "#dc5f5f",
+                    backgroundColor: "#4E5555",
                   }}
                 ></Box>
                 {envValue === "MoneyOddr" ? (
@@ -522,7 +397,7 @@ const LandingPartnersPage = () => {
                 )}
               </Grid>
               <Grid md={5} lg={5} sm={12} xs={12} className="sectionBreake">
-                <img src={joinus2} alt="become distributor" width="90%" />
+                <img src={joinus2} alt="become distributor" width="90%"></img>
               </Grid>
             </Grid>
           </Container>
@@ -531,4 +406,5 @@ const LandingPartnersPage = () => {
     </>
   );
 };
+
 export default LandingPartnersPage;

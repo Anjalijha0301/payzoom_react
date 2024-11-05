@@ -14,12 +14,12 @@ import EmailIcon from "@mui/icons-material/Email";
 import { contact_us, moSupport } from "../iconsImports";
 import { PATTERNS } from "../utils/ValidationUtil";
 import {
-  primaryColor,
+  getActiveColor,
   getEnv,
   getFirmAddress,
   getFirmContact,
   getFirmEmail,
-  primaryLight,
+  getTertiaryColor,
 } from "../theme/setThemeColor";
 
 const LandingContactUsPage = () => {
@@ -94,7 +94,7 @@ const LandingContactUsPage = () => {
                   >
                     <LocationOnIcon
                       sx={{
-                        color: primaryColor(),
+                        color: getActiveColor(),
                         fontSize: "2rem",
                         mt: 2,
                       }}
@@ -113,7 +113,7 @@ const LandingContactUsPage = () => {
                         color: "#fff",
                         px: { xs: 4, md: 4 },
                         py: { xs: 0, sm: 2, lg: 2 },
-                        backgroundColor: primaryColor(),
+                        backgroundColor: getActiveColor(),
                         height: "150px",
                       }}
                     >
@@ -137,7 +137,7 @@ const LandingContactUsPage = () => {
                   >
                     <PhoneAndroidIcon
                       sx={{
-                        color: primaryColor(),
+                        color: getActiveColor(),
                         fontSize: "2rem",
                         mt: 2,
                       }}
@@ -155,7 +155,7 @@ const LandingContactUsPage = () => {
                         textAlign: "center",
                         color: "#fff",
                         p: 5,
-                        backgroundColor: primaryColor(),
+                        backgroundColor: getActiveColor(),
                         height: "150px",
                         minHeight: "150px",
                       }}
@@ -180,7 +180,7 @@ const LandingContactUsPage = () => {
                   >
                     <EmailIcon
                       sx={{
-                        color: primaryColor(),
+                        color: getActiveColor(),
                         fontSize: "2rem",
                         mt: 2,
                       }}
@@ -198,7 +198,7 @@ const LandingContactUsPage = () => {
                         textAlign: "center",
                         color: "#fff",
                         p: 5,
-                        backgroundColor: primaryColor(),
+                        backgroundColor: getActiveColor(),
                         height: "150px",
                       }}
                     >
@@ -211,17 +211,8 @@ const LandingContactUsPage = () => {
 
             {/* contact form */}
 
-            <Grid
-              container
-              xs={12}
-              className={`${envValue === "MoneyOddr" ? "" : "sectionBreake"}`}
-            >
-              <Grid
-                lg={envValue === "MoneyOddr" ? 12 : 7}
-                md={12}
-                sm={12}
-                xs={12}
-              >
+            <Grid container xs={12} className="sectionBreake">
+              <Grid lg={7} md={12} sm={12} xs={12}>
                 <Card
                   sx={{
                     p: 5,
@@ -229,11 +220,7 @@ const LandingContactUsPage = () => {
                     boxShadow:
                       "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
                   }}
-                  className={
-                    envValue === "MoneyOddr"
-                      ? "shapedlogoBg line-bg-card"
-                      : "shapedBg line-bg-card"
-                  }
+                  className="shapedBg line-bg-card"
                 >
                   <Box className="landingPageHeadings">Contact Us !</Box>
                   <Box
@@ -351,7 +338,7 @@ const LandingContactUsPage = () => {
                       form="contact"
                       variant="contained"
                       sx={{ width: "100%", mt: 3 }}
-                      className="button-red"
+                      className="primary-button"
                     >
                       Submit
                     </Button>

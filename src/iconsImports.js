@@ -6,6 +6,8 @@ import successVdo from "./assets/video/checkmark.mp4";
 import failedVdo from "./assets/video/exclaimation.mp4";
 
 //
+import moneyOddr_bbps from "../src/assets/moBbps.png";
+
 import bbps from "./assets/bbps.png";
 import login_illustration from "./assets/loginIllustration.png";
 import landingPageIllustration from "./assets/landing-page-assets/paisakart_services.webp";
@@ -20,6 +22,7 @@ import hotel from "./assets/sidebar_icons/hotelbooking.svg";
 import bus from "./assets/sidebar_icons/busbooking.svg";
 import flight from "./assets/sidebar_icons/flightbooking.svg";
 import footerbg from "./assets/footer-bg.png";
+import micro from "../src/assets/moMicroAtm.png";
 import userAvatar from "./assets/user.webp";
 import i from "./assets/info.png";
 import rupeeLogo from "./assets/rupee.png";
@@ -30,7 +33,7 @@ import transaction_white from "./assets/transaction_white.png";
 import successGif from "./assets/success.json";
 import successGif2 from "./assets/successDone.json";
 import chatBox from "./assets/chat.png";
-
+import loginimage from "../src/assets/iconsgroup.png"
 import panda_illustration from "./assets/Panda.svg";
 import paytm from "./assets/paytm.svg";
 import about_us from "./assets/aboutus.webp";
@@ -126,8 +129,8 @@ import aboutUsNew from "../src/assets/aboutUs.png";
 
 import serviceDN from "../src/assets/serviceDown.jpg";
 import unauth from "../src/assets/unauthorized.jpg";
-import slide_one from "../src/assets/slide1.webp";
-import slide_two from "../src/assets/slide2.webp";
+import slide_one from "../src/assets/banner1.png";
+import slide_two from "../src/assets/banner2.png";
 // new nav
 import ledgre from "../src/assets/sidebar_icons/accountledger.svg";
 import purchase from "../src/assets/sidebar_icons/mypurchase.svg";
@@ -167,11 +170,16 @@ import aepsGuidelinesNew from "./assets/aeps-guidelines-new.png";
 import creditReqGuidelines from "./assets/credit-request-disclaimer.png";
 import irctcAuth from "./assets/irctc-auth.png";
 import irctcTravel from "./assets_travel/images/irctc.jpg";
+import payzoomLogo from "../src/assets/payzoom/payzoom_logo.png";
+
 export const Logo = biggpayLogo;
 export const smLogo = biggpayLogo_sm;
 
 //bbps export
 export const bbpsPng = bbps;
+export const microATM = micro;
+export const moBBPS = moneyOddr_bbps;
+export const payzoomLogoImg = payzoomLogo;
 
 // bbps icons . . .
 export const electricity_svg = electricity;
@@ -343,3 +351,4 @@ export const aepsGuidelinesImg = aepsGuidelines;
 export const aepsGuidelinesNewImg = aepsGuidelinesNew;
 export const creditReqGuidelinesImg = creditReqGuidelines;
 export const irctcTravelImage = irctcTravel;
+export const LoginPageImage = loginimage ;

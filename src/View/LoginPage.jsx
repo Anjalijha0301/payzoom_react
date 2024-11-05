@@ -13,7 +13,7 @@ import {
 import { get, getAxios, postJsonData } from "../network/ApiController";
 import { apiErrorToast, okErrorToast } from "../utils/ToastUtil";
 import AuthContext from "../store/AuthContext";
-import ApiEndpoints from "../network/ApiEndPoints";
+import ApiEndpoints, { BASE_URL } from "../network/ApiEndPoints";
 import ForgotPass from "../modals/ForgotPass";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -23,6 +23,12 @@ import { useEffect } from "react";
 import VerifyOtpLogin from "../modals/VerifyOtpLogin";
 import LogoComponent from "../component/LogoComponent";
 import { PATTERNS } from "../utils/ValidationUtil";
+// import { decryptData, encryptData } from "../utils/Encrypt";
+import axios from "axios";
+import { iconsGroupImg, LoginPageImage } from "../iconsImports";
+import LoginSlider from "../component/LoginSlider";
+import { SecondaryButton } from "../theme/Theme";
+import { blackColor, whiteColor } from "../theme/setThemeColor";
 
 const LoginPage = () => {
   const authCtx = useContext(AuthContext);
@@ -43,6 +49,10 @@ const LoginPage = () => {
       okErrorToast("Location", err);
     }
   );
+
+  // ###########################################################
+  // ################## LOGIN FORM SUBMIT ######################
+  // ###########################################################
   const handleClick = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -51,11 +61,7 @@ const LoginPage = () => {
       password: form.password.value,
     };
 
-    // const encryptformData = encryptData(data);
-    // console.log("encryptformData", encryptformData);
-    // setTimeout(() => {
-    //   console.log("decrypt", decryptData(encryptformData));
-    // }, 2000);
+    axios.get(BASE_URL + ApiEndpoints.COOKIE, { withCredentials: true });
     if (authCtx && !authCtx.location) {
       apiErrorToast("User Denied Geolocation");
     } else {
@@ -92,12 +98,8 @@ const LoginPage = () => {
                     navigate("/admin/dashboard");
                   } else if (user && user.role === "Asm") {
                     navigate("/asm/dashboard");
-                  } else if (user && user.role === "Zsm") {
-                    navigate("/zsm/dashboard");
                   } else if (user && user.role === "Ad") {
                     navigate("/ad/dashboard");
-                  } else if (user && user.role === "Md") {
-                    navigate("/md/dashboard");
                   } else if (
                     user &&
                     (user.role === "Ret" || user.role === "Dd")
@@ -147,151 +149,204 @@ const LoginPage = () => {
   }, []);
 
   return (
-    <Grid container className="login-page position-relative" sx={{ p: 2 }}>
-      <Spinner loading={loginRequest || userRequest} circleBlue />
-      <Grid
-        className="card-css"
-        sx={{ background: "#fff", p: 6, width: { lg: "40%" } }}
-      >
+    <Box className="position-relative">
+      <Grid container sx={{ height: "100vh" }}>
+        <Spinner loading={loginRequest || userRequest} circleBlue />
+
+        {/* the login form */}
         <Grid
-          component="form"
-          id="loginForm"
-          onSubmit={handleClick}
-          container
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Grid item md={12} xs={12}>
-            <FormControl md={12} sx={{ width: "100%" }}>
-              <Box
-                sx={{
-                  ml: { lg: 1, md: 1, sm: 1, xs: 0 },
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <LogoComponent width="250rem" />
-              </Box>
-            </FormControl>
-          </Grid>
-          <Grid item md={12} xs={12} sx={{ mt: 4 }}>
-            <FormControl
-              md={12}
-              sx={{ width: "100%", background: "white", color: "#1692ff" }}
-            >
-              <TextField
-                label="Phone Number"
-                id="username"
-                size="small"
-                type="number"
-                required
-                error={!isMobv}
-                helperText={!isMobv ? "Enter valid Mobile" : ""}
-                onChange={(e) => {
-                  setIsMobv(PATTERNS.MOBILE.test(e.target.value));
-                  if (e.target.value === "") setIsMobv(true);
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "+" || e.key === "-") e.preventDefault();
-                }}
-              />
-            </FormControl>
-          </Grid>
-          <Grid item md={12} xs={12} sx={{ mt: 4 }}>
-            <FormControl sx={{ width: "100%", background: "white" }}>
-              <TextField
-                label="Password"
-                id="password"
-                size="small"
-                type={showPass === 0 ? "password" : "text"}
-                required
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      {showPass === 0 ? (
-                        <FontAwesomeIcon
-                          icon={faEyeSlash}
-                          onClick={() => {
-                            setShowPass(1);
-                          }}
-                        />
-                      ) : (
-                        <FontAwesomeIcon
-                          icon={faEye}
-                          onClick={() => {
-                            setShowPass(0);
-                          }}
-                        />
-                      )}
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </FormControl>
-          </Grid>
-        </Grid>
-        <Grid md={12} xs={12} sx={{ mt: 2 }}>
-          <FormControl sx={{ width: "100%", textAlign: "end" }}>
-            <ForgotPass />
-          </FormControl>
-        </Grid>
-        <Grid
-          md={12}
+          item
+          md={4}
           xs={12}
           sx={{
-            mt: 2,
+            p: 6,
             display: "flex",
             justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center",
           }}
+          className="login-background"
         >
-          <Button
-            form="loginForm"
-            type="submit"
-            className="btn-background"
-            sx={{ width: "80%", textTransform: "capitalize" }}
-          >
-            Sign in
-          </Button>
-
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { md: "row", sm: "row" },
-              justifyContent: "space-between",
-
-              mt: 3,
-            }}
-          >
-            <Box
+          <Box sx={{ width: { md: "90%", sm: "100%", xs: "100%" } }}>
+            <Grid
+              component="form"
+              id="loginForm"
+              onSubmit={handleClick}
+              container
               sx={{
                 display: "flex",
                 justifyContent: "center",
               }}
             >
-              <Typography>Don't have an account? </Typography>
-              <Button
-                className="otp-hover-purple"
+              <Grid item md={12} xs={12}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    mt: 4,
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "35px",
+                      my: 1,
+                      color: whiteColor(),
+                      fontWeight: "600",
+                    }}
+                  >
+                    Login
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "25px",
+                      my: 1,
+                      color: whiteColor(),
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Welcome to PayZoom
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item md={12} xs={12} sx={{ mt: 6 }}>
+                <FormControl
+                  md={12}
+                  sx={{ width: "100%", background: "white", color: "#1692ff" }}
+                >
+                  <TextField
+                    label="Mobile Number"
+                    id="username"
+                    size="small"
+                    type="number"
+                    required
+                    error={!isMobv}
+                    helperText={!isMobv ? "Enter valid Mobile" : ""}
+                    onChange={(e) => {
+                      setIsMobv(PATTERNS.MOBILE.test(e.target.value));
+                      if (e.target.value === "") setIsMobv(true);
+                    }}
+                    // onKeyDown={(e) => {
+                    //   if (e.key === "+" || e.key === "-") e.preventDefault();
+                    //   if (
+                    //     e.target.value.length === 10 &&
+                    //     e.key.toLowerCase() !== "tab"
+                    //   ) {
+                    //     if (e.key.toLowerCase() !== "backspace")
+                    //       e.preventDefault();
+                    //     if (e.key.toLowerCase() === "backspace") {
+                    //     }
+                    //   }
+                    // }}
+                    InputLabelProps={{ style: { color: "#000" } }}
+                    // sx={{ background: "rgb(0 0 0 / 80%)" }}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item md={12} xs={12} sx={{ mt: 4 }}>
+                <FormControl sx={{ width: "100%", background: "white" }}>
+                  <TextField
+                    label="Password"
+                    id="password"
+                    size="small"
+                    type={showPass === 0 ? "password" : "text"}
+                    required
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          {showPass === 0 ? (
+                            <FontAwesomeIcon
+                              icon={faEyeSlash}
+                              onClick={() => {
+                                setShowPass(1);
+                              }}
+                              sx={{ color: "#dcdce2" }}
+                            />
+                          ) : (
+                            <FontAwesomeIcon
+                              icon={faEye}
+                              onClick={() => {
+                                setShowPass(0);
+                              }}
+                              sx={{ color: "#dcdce2" }}
+                            />
+                          )}
+                        </InputAdornment>
+                      ),
+                    }}
+                    InputLabelProps={{ style: { color: "#000" } }}
+                    // sx={{ background: "rgb(0 0 0 / 80%)" }}
+                  />
+                </FormControl>
+              </Grid>
+            </Grid>
+            <Grid md={12} xs={12} sx={{ mt: 2 }}>
+              <FormControl sx={{ width: "100%", textAlign: "end" }}>
+                <ForgotPass />
+              </FormControl>
+            </Grid>
+            <Grid
+              md={12}
+              xs={12}
+              sx={{
+                mt: 2,
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <SecondaryButton
+                form="loginForm"
+                type="submit"
+                // className="btn-background"
                 sx={{
-                  color: "#fff",
-                  fontSize: "13px !important",
-                  ml: 0.3,
+                  width: "80%",
                   textTransform: "capitalize",
-                  padding: "2px 8px",
-                }}
-                onClick={() => {
-                  navigate("/sign-up");
+                  color: "#fff",
                 }}
               >
-                Register Here
-              </Button>
-            </Box>
+                Sign in
+              </SecondaryButton>
 
-            <Divider orientation="vertical" flexItem />
-            {/* <Button
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: { md: "row", sm: "row" },
+                  justifyContent: "space-between",
+                  mt: 3,
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Typography sx={{ color: whiteColor(), fontWeight: "bold" }}>
+                    Don't have an account?{" "}
+                  </Typography>
+                  <Button
+                    // className="otp-hover-purple"
+                    variant="text"
+                    sx={{
+                      fontSize: "14px !important",
+                      fontWeight: "bold",
+                      ml: 0.3,
+                      textTransform: "capitalize",
+                      padding: "2px 8px",
+                      color: whiteColor(),
+                      textDecoration: "underline",
+                    }}
+                    onClick={() => {
+                      navigate("/sign-up");
+                    }}
+                  >
+                    Register Here
+                  </Button>
+                </Box>
+
+                <Divider orientation="vertical" flexItem />
+                {/* <Button
               className="otp-hover-purple"
               sx={{
                 color: "#0077b6",
@@ -305,21 +360,105 @@ const LoginPage = () => {
             >
               Back to home
             </Button> */}
+              </Box>
+            </Grid>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "flex-end",
+                height: "100%",
+                maxHeight: { xs: "100px", md: "140px" },
+              }}
+            >
+              <Typography
+                onClick={() => window.open("/terms-conditions", "_blank")}
+                sx={{
+                  color: blackColor(),
+                  "&:hover": {
+                    cursor: "pointer",
+                  },
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                }}
+              >
+                Terms and conditons
+              </Typography>
+              {"  "}{" "}
+              <Box
+                sx={{
+                  fontWeight: "600",
+                  mx: { md: "15px", xs: "5px" },
+                  color: blackColor(),
+                  fontSize: "14px",
+                }}
+              >
+                /
+              </Box>
+              <Typography
+                onClick={() => window.open("/privacy-policy", "_blank")}
+                sx={{
+                  color: blackColor(),
+                  "&:hover": {
+                    cursor: "pointer",
+                  },
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                }}
+              >
+                Privacy Policy
+              </Typography>
+            </Box>
           </Box>
         </Grid>
-      </Grid>
+        {/* the image */}
+        <Grid
+          item
+          md={8}
+          xs={12}
+          sx={{
+            // backgroundColor: "#ECF2F7",
+            display: { md: "flex", sm: "none", xs: "none" },
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Box
+            sx={{
+              mb: { lg: 6, md: 6, sm: 6, xs: 0 },
+            }}
+          >
+            <LogoComponent width="250rem" />
+          </Box>
+          <LoginSlider />
+          <div style={{ margin: "1rem" }}>
+            <img src={LoginPageImage} alt="icons grp" width="80%" />
+          </div>
+          <div
+            style={{
+              textAlign: "left",
+              color: blackColor(),
+              width: "100%",
+              padding: "0 2rem",
+            }}
+          >
+            Copyright © PayZoom - All Rights Reserved | Powered By PayZoom
+          </div>
+        </Grid>
 
-      {/* {(secureValidate === "mpin" || secureValidate === "otp") && ( */}
-      <VerifyOtpLogin
-        username={username}
-        showLaoder={false}
-        secureValidate={secureValidate}
-        setSecureValidate={setSecureValidate}
-        setUserRequest={setUserRequest}
-        btn="Login"
-      />
-      {/* )} */}
-    </Grid>
+        {/* {(secureValidate === "mpin" || secureValidate === "otp") && ( */}
+        <VerifyOtpLogin
+          username={username}
+          showLaoder={false}
+          secureValidate={secureValidate}
+          setSecureValidate={setSecureValidate}
+          setUserRequest={setUserRequest}
+          btn="Login"
+        />
+        {/* )} */}
+      </Grid>
+    </Box>
   );
 };
 

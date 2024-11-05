@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Logo } from "../iconsImports";
+import { payzoomLogoImg } from "../iconsImports";
 import AuthContext from "../store/AuthContext";
 
-const LogoComponent = ({ width = "150px", pl = "", style }) => {
+const LogoComponent = ({ width = "160px", pl = "", src = payzoomLogoImg }) => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const [user, setUser] = useState(authCtx?.user);
@@ -45,10 +45,10 @@ const LogoComponent = ({ width = "150px", pl = "", style }) => {
   };
   return (
     <img
-      src={Logo}
+      src={src}
       width={width}
       alt="logo"
-      style={{ paddingLeft: pl, ...style }}
+      style={{ paddingLeft: pl, objectFit: "contain" }}
       onClick={() => {
         handleClick();
       }}

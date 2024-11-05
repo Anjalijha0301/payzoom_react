@@ -671,7 +671,17 @@ body {
   // height: 90vh;
   justify-content: center;
 }
-
+.login-background {
+  // background-image: url(../assets/landing-page-assets/login-background.webp);
+  background-image: radial-gradient(
+    circle farthest-corner at 30% 30%,
+    #022e6b,
+    #071b37 100%
+  );
+  height: auto;
+  width: 100%;
+  background-size: cover;
+}
 .cards {
   width: 100%;
   display: "flex";
@@ -692,7 +702,6 @@ body {
   margin-top: 16px;
   color: $white-color;
 }
-
 .dash-cards {
   width: 250px;
   height: 4rem;
@@ -1247,7 +1256,7 @@ input[type="number"] {
 }
 .button-purple {
   cursor: pointer;
-  background-color: $primary-light !important;
+  background-color: $primary-color1 !important;
   color: $white-color !important;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -2253,7 +2262,7 @@ div.second {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  background: $secondary-color;
+  background: $primary-color1;
   transition: all 0.3s ease-in-out;
 }
 
@@ -2297,7 +2306,7 @@ div.second {
   z-index: -1;
 }
 .icon-box:hover::before {
-  background: $secondary-color;
+  background: $primary-color1;
   right: 0;
   top: 0;
   width: 100%;

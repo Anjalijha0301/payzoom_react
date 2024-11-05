@@ -1,5 +1,5 @@
 import { Button, createTheme, styled } from "@mui/material";
-import { primaryColor, getEnv, secondaryColor } from "./setThemeColor";
+import { primaryColor, getEnv, secondaryColor, getSecondaryColor } from "./setThemeColor";
 
 export const theme = createTheme({
   palette: {
@@ -25,11 +25,11 @@ export const PrimaryButton = styled(Button)(() => ({
   },
 }));
 export const SecondaryButton = styled(Button)(() => ({
-  backgroundColor: secondaryColor(),
-  // width: getEnv() === "MoneyOddr" ? "15rem" : "12rem",
-  // height: "3rem",
+  backgroundColor: getSecondaryColor(),
+  width: "12rem",
+  height: "3rem",
   "&:hover": {
-    backgroundColor: secondaryColor(),
+    backgroundColor: getSecondaryColor(),
   },
 }));
 

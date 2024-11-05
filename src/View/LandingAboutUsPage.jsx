@@ -10,9 +10,9 @@ import {
 } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React, { useEffect } from "react";
-import { aboutUs } from "../iconsImports";
+import { aboutUS, aboutUs, ModrAboutus } from "../iconsImports";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
-import { getEnv, primaryColor } from "../theme/setThemeColor";
+import { getEnv, getActiveColor } from "../theme/setThemeColor";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import ApartmentIcon from "@mui/icons-material/Apartment";
@@ -57,12 +57,15 @@ const mWhyChooseUs = [
     icon: <AccountBalanceOutlinedIcon />,
   },
 ];
+
 const LandingAboutUsPage = () => {
   const envName = getEnv();
+
+  // 👇️ scroll to top on page load
   useEffect(() => {
-    // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
   return (
     <div id="about-us">
       <Grid container sx={{ mt: 5 }} className="bottom2top">
@@ -148,7 +151,7 @@ const LandingAboutUsPage = () => {
                 <div className="flex-hs-vs">
                   <StorefrontIcon
                     sx={{
-                      color: primaryColor(),
+                      color: getActiveColor(),
                       fontSize: "2.2rem",
                       mr: { md: 1.2, xs: 0 },
                       mt: 1.1,
@@ -188,7 +191,7 @@ const LandingAboutUsPage = () => {
                 <div className="flex-hs-vs">
                   <GroupAddIcon
                     sx={{
-                      color: primaryColor(),
+                      color: getActiveColor(),
                       fontSize: "2.2rem",
                       mr: { md: 1.2, xs: 0 },
                       mt: 1.1,
@@ -226,7 +229,7 @@ const LandingAboutUsPage = () => {
                 <div className="flex-hs-vs">
                   <ApartmentIcon
                     sx={{
-                      color: primaryColor(),
+                      color: getActiveColor(),
                       fontSize: "2.2rem",
                       mr: { md: 1.2, xs: 0 },
                       mt: 1.1,
@@ -264,7 +267,7 @@ const LandingAboutUsPage = () => {
                 <div className="flex-hs-vs">
                   <StorefrontIcon
                     sx={{
-                      color: primaryColor(),
+                      color: getActiveColor(),
                       fontSize: "2.2rem",
                       mr: { md: 1.2, xs: 0 },
                       mt: 1.1,
@@ -348,205 +351,123 @@ const LandingAboutUsPage = () => {
 
         {/* what we do */}
         <Container maxWidth="lg" sx={{ mb: 1, mt: 10 }} className="bottom2top">
-          <div className="landingPageHeadings ">
-            {envName === "MoneyOddr" ? "Why Choose Us" : "What We Do"}
-          </div>
+          <div className="landingPageHeadings ">What We Do</div>
 
-          {envName === "MoneyOddr" ? (
-            <>
-              <Box
+          <>
+            <Grid container sx={{ mt: 5 }}>
+              <Grid
+                lg={4}
+                md={4}
+                sm={12}
+                xs={12}
                 sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  my: 5,
+                  mt: { lg: 2, md: 2, sm: 3, xs: 3 },
+                  px: { lg: 1, md: 1, sm: 0, xs: 0 },
                 }}
               >
-                <Typography variant="h6" sx={{ fontWeight: "600" }}>
-                  Attractive Commision
-                </Typography>
-                <Typography variant="body">
-                  Maximise Your Income with our Irresistible & Best Commission
-                  Rates!
-                </Typography>
-              </Box>
-              <Grid container>
-                {mWhyChooseUs &&
-                  mWhyChooseUs.map((item) => {
-                    return (
-                      <Grid
-                        lg={6}
-                        md={6}
-                        sm={12}
-                        xs={12}
-                        sx={{
-                          mt: { lg: 2, md: 2, sm: 3, xs: 3 },
-                          px: { lg: 1, md: 1, sm: 0, xs: 0 },
-                        }}
-                      >
-                        <List
-                          sx={{
-                            width: "100%",
-
-                            bgcolor: "background.paper",
-                            position: "relative",
-                          }}
-                        >
-                          <ListItem>
-                            <ListItemAvatar
-                              sx={{
-                                position: "absolute",
-                                // left: "-30px",
-                                top: 20,
-                              }}
-                            >
-                              <Avatar sx={{ backgroundColor: "#0096DD" }}>
-                                {item.icon}
-                              </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText
-                              sx={{ ml: 8 }}
-                              primary={
-                                <Typography
-                                  variant="h6"
-                                  sx={{ fontWeight: "600" }}
-                                >
-                                  {item.title}
-                                </Typography>
-                              }
-                              secondary={
-                                <Typography
-                                  variant="body"
-                                  sx={{ display: "flex", textAlign: "justify" }}
-                                >
-                                  {item.body}
-                                </Typography>
-                              }
-                            />
-                          </ListItem>
-                        </List>
-                      </Grid>
-                    );
-                  })}
-              </Grid>
-            </>
-          ) : (
-            <>
-              <Grid container sx={{ mt: 5 }}>
-                <Grid
-                  lg={4}
-                  md={4}
-                  sm={12}
-                  xs={12}
-                  sx={{
-                    mt: { lg: 2, md: 2, sm: 3, xs: 3 },
-                    px: { lg: 1, md: 1, sm: 0, xs: 0 },
-                  }}
-                >
-                  <div div className="whatWedoCard-hilight">
-                    <div
-                      style={{
-                        fontSize: "1.8rem",
-                        fontWeight: 400,
+                <div div className="whatWedoCard-hilight">
+                  <div
+                    style={{
+                      fontSize: "1.8rem",
+                      fontWeight: 400,
+                      color: "#fff",
+                    }}
+                  >
+                    Multiple Banking <br /> Services
+                  </div>
+                  <div className="landing-bg_para" style={{ color: "#fff" }}>
+                    We offer a wide range of digital banking services, including
+                    online banking, mobile banking, savings and checking
+                    accounts, insurance, and more. Our aim is to provide a
+                    comprehensive suite of services that cater to the diverse
+                    financial needs of our customers.
+                  </div>
+                  <div>
+                    <TipsAndUpdatesIcon
+                      sx={{
+                        fontSize: "80px",
                         color: "#fff",
+                        mt: 1,
                       }}
-                    >
-                      Multiple Banking <br /> Services
-                    </div>
-                    <div className="landing-bg_para" style={{ color: "#fff" }}>
-                      We offer a wide range of digital banking services,
-                      including online banking, mobile banking, savings and
-                      checking accounts, insurance, and more. Our aim is to
-                      provide a comprehensive suite of services that cater to
-                      the diverse financial needs of our customers.
-                    </div>
-                    <div>
-                      <TipsAndUpdatesIcon
-                        sx={{
-                          fontSize: "80px",
-                          color: "#fff",
-                          mt: 1,
-                        }}
-                      />
-                    </div>
+                    />
                   </div>
-                </Grid>
-                <Grid
-                  lg={4}
-                  md={4}
-                  sm={12}
-                  xs={12}
-                  sx={{
-                    mt: { lg: 2, md: 2, sm: 3, xs: 3 },
-                    px: { lg: 1, md: 1, sm: 0, xs: 0 },
-                  }}
-                >
-                  <div div className="whatWedoCard">
-                    <div className="whatWeDo-bg_heading">
-                      We provide banking and financial services by using safe
-                      and secure technology to assist people with:
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "1rem",
-                        fontWeight: 200,
-                        marginTop: "10px",
-                      }}
-                    >
-                      Bill payments and recharges,Banking services,Payment and
-                      cash collection services, Travel and e-governance
-                      services, Khata management services
-                    </div>
-                    <div>
-                      <TipsAndUpdatesIcon
-                        sx={{
-                          fontSize: "80px",
-                          color: "",
-                          mt: 1,
-                        }}
-                      />
-                    </div>
-                  </div>
-                </Grid>
-                <Grid
-                  lg={4}
-                  md={4}
-                  sm={12}
-                  xs={12}
-                  sx={{
-                    mt: { lg: 2, md: 2, sm: 3, xs: 3 },
-                    px: { lg: 1, md: 1, sm: 0, xs: 0 },
-                  }}
-                >
-                  <div div className="whatWedoCard">
-                    <div className="whatWeDo-bg_heading">
-                      We network with -Retailers,Distributors
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "1rem",
-                        fontWeight: 200,
-                        marginTop: "10px",
-                      }}
-                    >
-                      Enable them to increase earnings, provide loan facilities,
-                      provide branding and discounted services, provide
-                      no-rental digital payment devices.
-                    </div>
-                    <div>
-                      <TipsAndUpdatesIcon
-                        sx={{
-                          fontSize: "80px",
-                          color: "",
-                          mt: 1,
-                        }}
-                      />
-                    </div>
-                  </div>
-                </Grid>
+                </div>
               </Grid>
-            </>
-          )}
+              <Grid
+                lg={4}
+                md={4}
+                sm={12}
+                xs={12}
+                sx={{
+                  mt: { lg: 2, md: 2, sm: 3, xs: 3 },
+                  px: { lg: 1, md: 1, sm: 0, xs: 0 },
+                }}
+              >
+                <div div className="whatWedoCard">
+                  <div className="whatWeDo-bg_heading">
+                    We provide banking and financial services by using safe and
+                    secure technology to assist people with:
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: 200,
+                      marginTop: "10px",
+                    }}
+                  >
+                    Bill payments and recharges,Banking services,Payment and
+                    cash collection services, Travel and e-governance services,
+                    Khata management services
+                  </div>
+                  <div>
+                    <TipsAndUpdatesIcon
+                      sx={{
+                        fontSize: "80px",
+                        color: "",
+                        mt: 1,
+                      }}
+                    />
+                  </div>
+                </div>
+              </Grid>
+              <Grid
+                lg={4}
+                md={4}
+                sm={12}
+                xs={12}
+                sx={{
+                  mt: { lg: 2, md: 2, sm: 3, xs: 3 },
+                  px: { lg: 1, md: 1, sm: 0, xs: 0 },
+                }}
+              >
+                <div div className="whatWedoCard">
+                  <div className="whatWeDo-bg_heading">
+                    We network with -Retailers,Distributors
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: 200,
+                      marginTop: "10px",
+                    }}
+                  >
+                    Enable them to increase earnings, provide loan facilities,
+                    provide branding and discounted services, provide no-rental
+                    digital payment devices.
+                  </div>
+                  <div>
+                    <TipsAndUpdatesIcon
+                      sx={{
+                        fontSize: "80px",
+                        color: "",
+                        mt: 1,
+                      }}
+                    />
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
+          </>
 
           {/* mission vission and values section */}
 
@@ -579,8 +500,7 @@ const LandingAboutUsPage = () => {
                 <Box
                   component="span"
                   sx={{
-                    backgroundColor:
-                      envName === "MoneyOddr" ? "#2C3D69" : "#0b9d00",
+                    backgroundColor: "#E87204",
                     color: "#fff",
                     width: "70px",
                     height: "70px",
@@ -600,39 +520,21 @@ const LandingAboutUsPage = () => {
                 </span>
               </Box>
 
-              {envName === "MoneyOddr" ? (
-                <Box
-                  className="landing-bg_para"
-                  component="div"
-                  sx={{
-                    textAlign: "justify",
-                    width: { lg: "80%", md: "80%", sm: "80%", xs: "100%" },
-                  }}
-                >
-                  <span style={{ fontWeight: "900" }}>MoneyOddR</span> is
-                  founded with a mission to engage every Indian in mainstream
-                  banking by providing last mile services.
-                  <span style={{ fontWeight: "900", color: "#00BF78" }}>
-                    “Har Ghar – Har Nagar”
-                  </span>
-                </Box>
-              ) : (
-                <Box
-                  className="landing-bg_para"
-                  component="div"
-                  sx={{
-                    textAlign: "justify",
-                    width: { lg: "80%", md: "80%", sm: "80%", xs: "100%" },
-                  }}
-                >
-                  To become India's best digital financial solutions provider in
-                  the unorganized sector. To enable the adoption of fintech in
-                  every small business and retail store in India in a quest to
-                  grow their business and help expand their offerings. To spur
-                  job creation by aiding micro-entrepreneurship, specifically in
-                  the rural and semi-urban sectors.
-                </Box>
-              )}
+              <Box
+                className="landing-bg_para"
+                component="div"
+                sx={{
+                  textAlign: "justify",
+                  width: { lg: "80%", md: "80%", sm: "80%", xs: "100%" },
+                }}
+              >
+                To become India's best digital financial solutions provider in
+                the unorganized sector. To enable the adoption of fintech in
+                every small business and retail store in India in a quest to
+                grow their business and help expand their offerings. To spur job
+                creation by aiding micro-entrepreneurship, specifically in the
+                rural and semi-urban sectors.
+              </Box>
             </Grid>
 
             {/* 02 */}
@@ -663,8 +565,7 @@ const LandingAboutUsPage = () => {
                 <Box
                   component="span"
                   sx={{
-                    backgroundColor:
-                      envName === "MoneyOddr" ? "#2C3D69" : "#0b9d00",
+                    backgroundColor: "#E87204",
                     color: "#fff",
                     width: {
                       lg: "70px",
@@ -689,33 +590,18 @@ const LandingAboutUsPage = () => {
                 </span>
               </Box>
 
-              {envName === "MoneyOddr" ? (
-                <Box
-                  className="landing-bg_para"
-                  component="div"
-                  sx={{
-                    textAlign: "justify",
-                    width: { lg: "80%", md: "80%", sm: "100%", xs: "100%" },
-                  }}
-                >
-                  <span style={{ fontWeight: "900" }}>MoneyOddR</span> is
-                  created to become the best and user-friendly banking platform
-                  to serve India's unorganized sectors & rural india.
-                </Box>
-              ) : (
-                <Box
-                  className="landing-bg_para"
-                  component="div"
-                  sx={{
-                    textAlign: "justify",
-                    width: { lg: "80%", md: "80%", sm: "100%", xs: "100%" },
-                  }}
-                >
-                  To become a one-stop digital payment and banking point and
-                  superior distribution channel to improve India's monetization
-                  infrastructure, specifically in the unorganized retail sector.
-                </Box>
-              )}
+              <Box
+                className="landing-bg_para"
+                component="div"
+                sx={{
+                  textAlign: "justify",
+                  width: { lg: "80%", md: "80%", sm: "100%", xs: "100%" },
+                }}
+              >
+                To become a one-stop digital payment and banking point and
+                superior distribution channel to improve India's monetization
+                infrastructure, specifically in the unorganized retail sector.
+              </Box>
             </Grid>
             {/* 03 */}
             <Grid
@@ -745,8 +631,7 @@ const LandingAboutUsPage = () => {
                 <Box
                   component="span"
                   sx={{
-                    backgroundColor:
-                      envName === "MoneyOddr" ? "#2C3D69" : "#0b9d00",
+                    backgroundColor: "#E87204",
                     color: "#fff",
                     width: "70px",
                     height: "70px",
@@ -766,41 +651,22 @@ const LandingAboutUsPage = () => {
                 </span>
               </Box>
 
-              {envName === "MoneyOddr" ? (
-                <Box
-                  className="landing-bg_para"
-                  component="div"
-                  sx={{
-                    textAlign: "justify",
-                    width: { lg: "80%", md: "80%", sm: "80%", xs: "100%" },
-                  }}
-                >
-                  <span style={{ fontWeight: "900" }}>
-                    Availability, Reliability, Transparency & Trust
-                  </span>
-                  are the key values of
-                  <span style={{ fontWeight: "900" }}>MoneyOddR</span> and we
-                  are committed to serve each of our Retailer, Distributors and
-                  other associated partners as per our Values.
-                </Box>
-              ) : (
-                <Box
-                  className="landing-bg_para"
-                  component="div"
-                  sx={{
-                    textAlign: "justify",
-                    width: { lg: "80%", md: "80%", sm: "80%", xs: "100%" },
-                  }}
-                >
-                  Insight-led - We make decisions based on cutting-edge,
-                  technologically-driven research and data. Innovation - We
-                  continually evolve to create technology-enabled solutions and
-                  campaigns for our users. Integrity - We encourage conducting
-                  business by adhering to the highest standards of trust and
-                  ethics. Collaboration - We endeavour to strengthen and develop
-                  mutually beneficial relations with our customers and partners.
-                </Box>
-              )}
+              <Box
+                className="landing-bg_para"
+                component="div"
+                sx={{
+                  textAlign: "justify",
+                  width: { lg: "80%", md: "80%", sm: "80%", xs: "100%" },
+                }}
+              >
+                Insight-led - We make decisions based on cutting-edge,
+                technologically-driven research and data. Innovation - We
+                continually evolve to create technology-enabled solutions and
+                campaigns for our users. Integrity - We encourage conducting
+                business by adhering to the highest standards of trust and
+                ethics. Collaboration - We endeavour to strengthen and develop
+                mutually beneficial relations with our customers and partners.
+              </Box>
             </Grid>
           </Grid>
         </Container>
