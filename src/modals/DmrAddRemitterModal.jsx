@@ -25,6 +25,8 @@ const DmrAddRemitterModal = ({
   const [request, setRequest] = useState(false);
 
   const [mobile, setMobile] = useState(rem_mobile);
+  const [aadhaarNumber, setAadhaarNumber] = useState();
+
   const [otpRefId, setOtpRefId] = useState("");
   const [showOtp, setShowOtp] = useState(false);
 
@@ -58,8 +60,9 @@ const DmrAddRemitterModal = ({
             name: form.rem_name.value,
           }
         : {
-            first_name: form.first_name.value,
-            last_name: form.last_name.value,
+            // first_name: form.first_name.value,
+            // last_name: form.last_name.value,
+            aadhaarNumber: form.aadhaar_number.value,
             number: mobile,
           };
     if (showOtp && showOtp) {
@@ -182,30 +185,45 @@ const DmrAddRemitterModal = ({
                   </FormControl>
                 </Grid>
               ) : (
+                // <Grid item md={12} xs={12}>
+                //   <Grid item md={12} xs={12}>
+                //     <FormControl sx={{ width: "100%" }}>
+                //       <TextField
+                //         label="First name"
+                //         id="first_name"
+                //         size="small"
+                //         required
+                //         inputProps={{ minLength: 3 }}
+                //       />
+                //     </FormControl>
+                //   </Grid>
+                //   <Grid item md={12} xs={12}>
+                //     <FormControl sx={{ width: "100%" }}>
+                //       <TextField
+                //         label="Last Name"
+                //         id="last_name"
+                //         size="small"
+                //         required
+                //         inputProps={{ minLength: 3 }}
+                //       />
+                //     </FormControl>
+                //   </Grid>
+                // </Grid>
                 <Grid item md={12} xs={12}>
-                  <Grid item md={12} xs={12}>
-                    <FormControl sx={{ width: "100%" }}>
-                      <TextField
-                        label="First name"
-                        id="first_name"
-                        size="small"
-                        required
-                        inputProps={{ minLength: 3 }}
-                      />
-                    </FormControl>
-                  </Grid>
-                  <Grid item md={12} xs={12}>
-                    <FormControl sx={{ width: "100%" }}>
-                      <TextField
-                        label="Last Name"
-                        id="last_name"
-                        size="small"
-                        required
-                        inputProps={{ minLength: 3 }}
-                      />
-                    </FormControl>
-                  </Grid>
+                <Grid item md={12} xs={12}>
+                  <FormControl sx={{ width: "100%" }}>
+                    <TextField
+                      label="Aadhaar Number"
+                      id="aadhaar_number"
+                      size="small"
+                      value={aadhaarNumber}
+                      onChange={(e)=> setAadhaarNumber(e.target.value)}
+                      required
+                      inputProps={{ maxLength: 12, pattern: "^[0-9]{12}$" }}
+                    />
+                  </FormControl>
                 </Grid>
+              </Grid>
               )}
 
               {(showOtp || otpRef) && (
