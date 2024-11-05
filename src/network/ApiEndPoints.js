@@ -1,4 +1,4 @@
-export const BASE_URL = "https://api.payzoom.co.in/";
+export const BASE_URL = "https://api.PaisaKart.in/";
 // export const BASE_URL = "https://uat.impsguru.com/";
 // export const BASE_URL = "http://192.168.1.14/impsguru-php/";
 
