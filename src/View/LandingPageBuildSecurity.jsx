@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "@mui/system";
 import { Box, Grid } from "@mui/material";
-import { getEnv } from "../theme/setThemeColor";
+import { getEnv, getSecondaryColor } from "../theme/setThemeColor";
 
 const LandingPageBuildSecurity = () => {
   return (
@@ -27,7 +27,7 @@ const LandingPageBuildSecurity = () => {
                 mb: { lg: 0, md: 0, sm: 3, xs: 3 },
               }}
             >
-              <span style={{ color: "#d35400" }}>01</span>
+              <span style={{ color: getSecondaryColor() }}>01</span>
               <div
                 style={{
                   display: "inline",
@@ -79,8 +79,13 @@ const LandingPageBuildSecurity = () => {
                   display: "inline",
                 }}
               >
-                <span className="landing-bg_main_font">Secure </span>
-                <span style={{ color: "#d35400" }}> 02</span>
+                <span
+                  className="landing-bg_main_font"
+                  style={{ color: "#fff" }}
+                >
+                  Secure{" "}
+                </span>
+                <span style={{ color: getSecondaryColor() }}> 02</span>
               </div>
               <Box
                 component="div"
@@ -110,7 +115,11 @@ const LandingPageBuildSecurity = () => {
               >
                 <span
                   className="landing-bg_para"
-                  style={{ textAlign: "right", marginRight: "15px" }}
+                  style={{
+                    textAlign: "right",
+                    marginRight: "15px",
+                    color: "#fff",
+                  }}
                 >
                   Enjoy secure access to your account with 2-factor
                   authentication and TLS/SSL encryption of your data.
@@ -134,14 +143,21 @@ const LandingPageBuildSecurity = () => {
                 justifyContent: "left",
               }}
             >
-              <span style={{ color: "#d35400", marginRight: "10px" }}>03</span>
+              <span style={{ color: getSecondaryColor(), marginRight: "10px" }}>
+                03
+              </span>
               <div
                 style={{
                   display: "inline",
                   color: "#851414 !important",
                 }}
               >
-                <span className="landing-bg_main_font">Compliant</span>
+                <span
+                  className="landing-bg_main_font"
+                  style={{ color: "#fff" }}
+                >
+                  Compliant
+                </span>
               </div>
             </Box>
             <Box
@@ -163,7 +179,10 @@ const LandingPageBuildSecurity = () => {
                 marginTop: "-33px",
               }}
             >
-              <span className="landing-bg_para" style={{ marginLeft: "15px" }}>
+              <span
+                className="landing-bg_para"
+                style={{ marginLeft: "15px", color: "#fff" }}
+              >
                 {getEnv()} complies with the same set of strict security
                 standards as traditional banks in India follow.
               </span>

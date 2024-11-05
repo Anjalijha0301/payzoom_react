@@ -13,12 +13,21 @@ export const primaryLightest = () => {
     return "#f48f26";
   }
 };
+export const getActiveColor = () => {
+  if (process.env.REACT_APP_TITLE === "PayZoom") {
+    return "#022e6b";
+  }
+};
 export const secondaryColor = () => {
   if (process.env.REACT_APP_TITLE === "PaisaKart") {
     return "#3f3f3f";
   }
 };
-
+export const getSecondaryColor = () => {
+  if (process.env.REACT_APP_TITLE === "PayZoom") {
+    return "#c41c23";
+  }
+};
 export const getHoverActive = () => {
   if (process.env.REACT_APP_TITLE === "PaisaKart") {
     return "#3f3f3f";
