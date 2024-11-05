@@ -1,6 +1,5 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,14 +9,18 @@ import Container from "@mui/material/Container";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { Logo } from "../iconsImports";
 import LogoComponent from "./LogoComponent";
-import { getEnv } from "../theme/setThemeColor";
+// import { Logo } from "../iconsImports";
+// import { getEnv } from "../theme/setThemeColor";
 import useCommonContext from "../store/CommonContext";
+// import whiteLogo from "../assets/payzoom/logo_white.png";
+
+import whiteLogo from "../assets/payzoom/payzoom_white_logo.png";
 
 //change color on scroll
 const theme2 = {
-  background: "rgba(255, 255, 255, 0)",
+  // background: "rgba(255, 255, 255, 0)",
+  background: "#1b4279",
   boxShadow: "none !Important",
   backdropFilter: "blur(0px)",
   color: "#000",
@@ -46,91 +49,36 @@ ElevationScroll.propTypes = {
 };
 //menu items
 const pagesLg = [
-  { navItems: "ABOUT US", to: "/about-us", id: "about-us", sName: "aboutSec" },
+  { navItems: "About us", to: "/about-us", id: "about-us", sName: "aboutSec" },
   {
-    navItems: "OUR SERVICES",
+    navItems: "Our services",
     to: "/our-services",
     id: "our-services",
     sName: "servicesSec",
   },
   {
-    navItems: "OUR PARTNERS",
+    navItems: "Our partners",
     to: "/our-partners",
     id: "our-partners",
     sName: "partnerSec",
   },
   {
-    navItems: "CONTACT US",
+    navItems: "Contact us",
     to: "/contact-us",
     id: "contact-us",
     sName: "contactSec",
   },
 ];
 const pagesSm = [
-  { navItems: "ABOUT US", to: "/about-us", sName: "aboutSec" },
-  { navItems: "OUR SERVICES", to: "/our-services", sName: "servicesSec" },
-  { navItems: "OUR PARTNERS", to: "/our-partners", sName: "partnerSec" },
-  { navItems: "CONTACT US", to: "/contact-us", sName: "contactSec" },
-  { navItems: "LOGIN/SIGN UP", to: "/login", sName: "" },
+  { navItems: "About us", to: "/about-us", sName: "aboutSec" },
+  { navItems: "Our services", to: "/our-services", sName: "servicesSec" },
+  { navItems: "Our partners", to: "/our-partners", sName: "partnerSec" },
+  { navItems: "Contact us", to: "/contact-us", sName: "contactSec" },
+  { navItems: "Login/Sign up", to: "/login", sName: "" },
 ];
-
-if (process.env.REACT_APP_TITLE === "MoneyOddr") {
-  pagesLg.unshift({
-    navItems: "HOME",
-    to: "/",
-    id: "landing-intro",
-    sName: "homeSec",
-  });
-}
-
-//scroll function for moneyoddr
-const handleClickScroll = (id) => {
-  console.log("id", id);
-  if (id === "landing-intro") {
-    let ele = document.getElementById("landing-intro");
-    if (ele) window.scrollTo(0, ele.offsetTop - 80, { behavior: "smooth" });
-
-    // .scrollIntoView({ behavior: "smooth" });
-  }
-  if (id === "about-us") {
-    // document.getElementById("about-us").scrollIntoView({
-    //   behavior: "smooth",
-    //   block: "end",
-    //   inline: "nearest",
-    // });
-    let ele = document.getElementById("about-us");
-    console.log("ele in about", ele);
-    if (ele) window.scrollTo(0, ele.offsetTop - 80, { behavior: "smooth" });
-  }
-  if (id === "contact-us") {
-    let ele = document.getElementById("contact-us");
-    if (ele) window.scrollTo(0, ele.offsetTop - 80, { behavior: "smooth" });
-
-    // .scrollIntoView({ behavior: "smooth" });
-  }
-  if (id === "our-services") {
-    let ele = document.getElementById("our-services");
-    if (ele) window.scrollTo(0, ele.offsetTop - 80, { behavior: "smooth" });
-
-    // .scrollIntoView({ behavior: "smooth" });
-  }
-  if (id === "our-partners") {
-    let ele = document.getElementById("our-partners");
-    if (ele) window.scrollTo(0, ele.offsetTop - 80, { behavior: "smooth" });
-
-    // .scrollIntoView({ behavior: "smooth" });
-  }
-  if (id === "landing-intro") {
-    let ele = document.getElementById("landing-intro");
-    if (ele) window.scrollTo(0, ele.offsetTop - 80, { behavior: "smooth" });
-
-    // .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-  }
-};
 
 export default function Navbar(props) {
   const { section } = useCommonContext();
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const navigate = useNavigate();
   const handleOpenNavMenu = (event) => {
@@ -151,164 +99,151 @@ export default function Navbar(props) {
     <React.Fragment>
       <CssBaseline />
       <ElevationScroll {...props}>
-        <AppBar>
-          <Container maxWidth="xl">
-            <Toolbar
-              disableGutters
-              sx={{ display: "flex", justifyContent: "space-between" }}
+        {/* <AppBar> */}
+        <Container maxWidth="xl">
+          <Toolbar
+            disableGutters
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+                transition: "transform .2s",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                },
+                whiteLogo,
+              }}
             >
-              <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/"
+              <LogoComponent src={whiteLogo} />
+              {/* <img src={Logo} width="150px" alt="logo" /> */}
+            </Typography>
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href=""
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                justifyContent: "left",
+                textDecoration: "none",
+                transition: "transform .2s",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                },
+              }}
+            >
+              <LogoComponent />
+            </Typography>
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                justifyContent: "right",
+              }}
+            >
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
                 sx={{
-                  mr: 2,
-                  display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                  transition: "transform .2s",
-                  "&:hover": {
-                    transform: "scale(1.1)",
-                  },
+                  display: { xs: "block", md: "none" },
                 }}
               >
-                <LogoComponent />
-                {/* <img src={Logo} width="150px" alt="logo" /> */}
-              </Typography>
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href=""
-                sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "none" },
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  justifyContent: "left",
-                  textDecoration: "none",
-                  transition: "transform .2s",
-                  "&:hover": {
-                    transform: "scale(1.1)",
-                  },
-                }}
-              >
-                <img src={Logo} width="150px" alt="logo" />
-              </Typography>
-              <Box
-                sx={{
-                  display: { xs: "flex", md: "none" },
-                  justifyContent: "right",
-                }}
-              >
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleOpenNavMenu}
-                  color="inherit"
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorElNav}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                  open={Boolean(anchorElNav)}
-                  onClose={handleCloseNavMenu}
-                  sx={{
-                    display: { xs: "block", md: "none" },
-                  }}
-                >
-                  {/* {pages.map((page) => (
+                {/* {pages.map((page) => (
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                       <Typography textAlign="center">{page}</Typography>
                     </MenuItem>
                   ))} */}
-                  {pagesSm.map((item) => {
-                    return (
-                      <MenuItem className="navitems">
-                        <Link
-                          to={item.to}
-                          onClick={() => {
-                            handleCloseNavMenu();
-                          }}
-                          className="navLinks"
-                        >
-                          {item.navItems}
-                        </Link>
-                      </MenuItem>
-                    );
-                  })}
-                </Menu>
-              </Box>
-              <Box
-                sx={{
-                  display: { xs: "none", md: "flex" },
-                  justifyContent: "end",
-                }}
-              >
-                {pagesLg.map((item) => {
+                {pagesSm.map((item) => {
                   return (
-                    <MenuItem
-                      className={`${item.sName === section ? "" : ""}`}
-                      onClick={(id) => {
-                        if (getEnv() === "MoneyOddr") {
-                          handleClickScroll(item.id);
-                        } else {
-                          console.log("ihere");
-                          navigate(item.to);
-                        }
-                      }}
-                    >
-                      {getEnv() === "MoneyOddr" ? (
-                        <Box
-                          className={`${
-                            item.sName === section ? "test-hover" : "navitems"
-                          } `}
-                        >
-                          {item.navItems}
-                        </Box>
-                      ) : (
-                        <Link className="navLinks">{item.navItems}</Link>
-                      )}
+                    <MenuItem className="navitems">
+                      <Link
+                        to={item.to}
+                        onClick={() => {
+                          handleCloseNavMenu();
+                        }}
+                        className="navLinks-sm"
+                      >
+                        {item.navItems}
+                      </Link>
                     </MenuItem>
                   );
                 })}
-                <Button
-                  className="button-red"
-                  // className="the-gradient-button"
-                  onClick={() => {
-                    navigate("/login");
-                  }}
-                  variant="contained"
-                  sx={{
-                    fontSize: { lg: "15px", md: "10px", xs: "10px" },
-                  }}
-                >
-                  Login / Signup
-                </Button>
-              </Box>
-            </Toolbar>
-          </Container>
-        </AppBar>
+              </Menu>
+            </Box>
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                justifyContent: "end",
+              }}
+            >
+              {pagesLg.map((item) => {
+                return (
+                  <MenuItem
+                    className={`${item.sName === section ? "" : ""}`}
+                    onClick={(id) => {
+                      navigate(item.to);
+                    }}
+                  >
+                    <Link className="navLinks">{item.navItems}</Link>
+                  </MenuItem>
+                );
+              })}
+              <Button
+                // className="primary-button"
+                className="transparent-button"
+                sx={{ textTransform: "none" }}
+                onClick={() => {
+                  navigate("/login");
+                }}
+                variant="contained"
+              >
+                Login / Sign up
+              </Button>
+            </Box>
+          </Toolbar>
+        </Container>
+        {/* </AppBar> */}
       </ElevationScroll>
-      <Toolbar />
+      {/* <Toolbar /> */}
     </React.Fragment>
   );
 }

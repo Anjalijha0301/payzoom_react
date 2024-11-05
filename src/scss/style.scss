@@ -36,10 +36,14 @@ body {
 }
 // navbar
 .navLinks {
-  color: $navlink-color !important;
+  // color: $navlink-color !important;
+  color:#fff !important
 }
 .navLinks:hover {
   text-decoration: none !important;
+}
+.navLinks-sm {
+  color: $navlink-color !important;
 }
 .navitems {
   color: $navlink-color !important;

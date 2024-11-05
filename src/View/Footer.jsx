@@ -1,14 +1,23 @@
 import React from "react";
 import { Box, Grid, Container, Typography } from "@mui/material";
-import { facebook, insta, linkdin, Logo, twitter } from "../iconsImports";
+import {
+  facebook,
+  insta,
+  linkdin,
+  Logo,
+  payzoomLogoWhiteImg,
+  twitter,
+} from "../iconsImports";
 import { useNavigate } from "react-router-dom";
 
 import {
+  firmMoto,
   getFirmAddress,
   getFirmContact,
   getFirmEmail,
 } from "../theme/setThemeColor";
 
+// eslint-disable-next-line no-unused-vars
 const handleClickScroll = (id) => {
   if (id === "landing-intro") {
     document
@@ -40,6 +49,7 @@ const handleClickScroll = (id) => {
       .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
   }
 };
+
 const Footer = () => {
   const navigate = useNavigate();
   return (
@@ -67,20 +77,22 @@ const Footer = () => {
                   style={{
                     borderRadius: "4px",
                     padding: "2px",
-                    background:
-                      process.env.REACT_APP_TITLE === "ImpsGuru"
-                        ? ""
-                        : "#ffffff",
                   }}
-                  src={Logo}
+                  src={payzoomLogoWhiteImg}
                   alt="logo"
                   width="230px"
                 />
               </div>
-              <div className="address-style" style={{ marginTop: "15px" }}>
+              <div
+                className="address-style"
+                style={{ marginTop: "15px", whiteSpace: " pre-line" }}
+              >
                 {getFirmAddress()}
               </div>
-              {process.env.REACT_APP_TITLE !== "ImpsGuru" && (
+              <div className="address-style" style={{ marginTop: "15px" }}>
+                {firmMoto()}
+              </div>
+              {process.env.REACT_APP_TITLE !== "PayZoom" && (
                 <div
                   style={{
                     display: "flex",
@@ -148,8 +160,7 @@ const Footer = () => {
                 mt: { lg: 0, md: 0, sm: 5, xs: 5 },
               }}
             >
-              <div className="footer-head-text"></div>
-              <br />
+              <div className="footer-head-text">Company</div>
               <div
                 className="text-style"
                 onClick={() => {
@@ -164,7 +175,7 @@ const Footer = () => {
                   navigate("/about-us");
                 }}
               >
-                About US 
+                About US
               </div>
               <div
                 className="text-style"
@@ -185,7 +196,7 @@ const Footer = () => {
                 mt: { lg: 0, md: 0, sm: 5, xs: 5 },
               }}
             >
-              <div className="footer-head-text">Company's</div>
+              <div className="footer-head-text">Company</div>
               <div
                 className="text-style"
                 onClick={() => {
@@ -225,17 +236,20 @@ const Footer = () => {
               <div className="text-style">{getFirmContact()}</div>
               <div className="text-style text-lowercase">{getFirmEmail()}</div>
             </Grid>
-            <Grid md={12} sx={{ textAlign: "center", px: 4, mt: 1 }}>
+            <Grid
+              md={12}
+              sx={{ textAlign: "left", px: { xs: 0, md: 4 }, mt: 1 }}
+            >
               <Typography sx={{ color: "#fff", fontSize: "14px", mt: 1 }}>
-                <span className="mx-1">© Copyright 2023</span>
-                {process.env.REACT_APP_TITLE === "ImpsGuru"
-                  ? "MobiFast"
-                  : process.env.REACT_APP_TITLE === "PaisaKart"
-                  ? "Jab Wallet"
-                  : process.env.REACT_APP_TITLE}
-                <span className="mx-1">
-                   Pvt Ltd. All Rights Reserve
+                <span>
+                  Copyright 2021 Design & Developed by Webplat Technologies Pvt
+                  Ltd.
                 </span>
+                {/* <span className="mx-1">© Copyright 2023</span>
+                {process.env.REACT_APP_TITLE}
+                <span className="mx-1">
+                  Solutions Pvt Ltd. All Rights Reserve
+                </span> */}
               </Typography>
               <Typography sx={{ color: "#fff", fontSize: "14px", mt: 0.5 }}>
                 Disclaimer:  Any dispute arising under these terms and

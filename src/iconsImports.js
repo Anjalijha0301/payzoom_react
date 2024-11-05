@@ -109,6 +109,7 @@ import certificate from "./assets/svg/certificate_icon.png";
 import prabhu from "./assets/prabhuMT.jpg";
 import kycverification from "./assets/kyc_verification.webp";
 import indNepal from "./assets/indo_nepal.webp";
+import payzoomLogoWhite from "../src/assets/payzoom/logo_white.png";
 
 import aepsAuth from "./assets/aepsAuth.webp";
 import processing from "./assets/processing.png";
@@ -205,6 +206,7 @@ export const water_drop = water_drop_svg;
 export const water_drop_invert = water_drop_invert_svg;
 export const credit_card = card;
 export const credit_card_invert = card_invert;
+export const payzoomLogoWhiteImg = payzoomLogoWhite;
 
 //my imports
 export const irctcAuthImg = irctcAuth;

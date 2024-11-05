@@ -46,10 +46,11 @@ export const getTableHeadRowColor = () => {
 };
 
 export const getEnv = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
-    return "PaisaKart";
+  if (process.env.REACT_APP_TITLE === "PayZoom") {
+    return "PayZoom";
   }
 };
+
 export const blackColor = () => {
   return "#1a1a1a";
 };
@@ -136,18 +137,23 @@ export const getStatusColor = (status) => {
 };
 
 export const getFirmAddress = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
-    return `Shop No. 33 , CSC-4, Sector-2, Rohini, New Delhi - 110085`;
+  if (process.env.REACT_APP_TITLE === "PayZoom") {
+    return `Payzoom 941/30 mayur vihar
+    sonipat haryana
+    pin 131001 GST NO.06AGJPL2766P1ZR`;
   }
 };
 export const getFirmContact = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
-    return `+91-7827270701, 01140507245`;
+  if (process.env.REACT_APP_TITLE === "PayZoom") {
+    return `+91 8059989836`;
   }
 };
+export const firmMoto = () => {
+  return `We help retailers across the country drive more footfall, save time, get valuable business insights, & grow profitability.`;
+};
 export const getFirmEmail = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
-    return `paisakart2023@gmail.com`;
+  if (process.env.REACT_APP_TITLE === "PayZoom") {
+    return `info@payzoom.co`;
   }
 };
 
