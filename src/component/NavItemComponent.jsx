@@ -76,13 +76,13 @@ const NavItemComponent = ({
             sx={{
               justifyContent: open ? "initial" : "center",
               // backgroundColor: isCurrentActive ? `${primaryLight()}90` : "",
-              backgroundColor: isCurrentActive ? `#E87204` : "",
+              backgroundColor: isCurrentActive ? `#022e6b` : "",
               backdropFilter: isCurrentActive ? "blur(5px)" : "",
               border: isCurrentActive
                 ? "1px solid rgba(159, 134, 192, 0.3)"
                 : "",
               "&:hover": {
-                backgroundColor: `gray`,
+                backgroundColor: "red",
               },
               borderRadius: "4px",
               // boxShadow: isCurrentActive

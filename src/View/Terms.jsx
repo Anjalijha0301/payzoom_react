@@ -1,16 +1,17 @@
 import { Box, Container } from "@mui/material";
 import React from "react";
+import { getFirmAddress } from "../theme/setThemeColor";
 
 const Terms = () => {
   return (
     <div>
       <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <div className="landing-bg_biggpay_font">Terms &amp; Conditions</div>
+        <div className="landing-bg_PayZoom_font">Terms &amp; Conditions</div>
         <Box
           style={{
             width: "60px",
             height: "10px",
-            backgroundColor: "#dc5f5f",
+            backgroundColor: "#4E5555",
           }}
         ></Box>
         <div>
@@ -24,24 +25,23 @@ const Terms = () => {
                 <strong>(“Services”)</strong>. These Terms are legally binding
                 and govern the use of our website, our mobile application, our
                 API and other properties collectively called as the
-                <strong>“PaisaKart"</strong> or
+                <strong>“PayZoom Platform”</strong> or
                 <strong> “Platform”</strong>
-                created by Jab Wallet Pvt. Ltd., a company incorporated
-                under the laws of India, with its registered office at Plot No.
-                8 Pocket, 6, Sector 22, Rohini, Delhi, 110086
-                <strong>(“PaisaKart” or “Company”)</strong>.
+                created by PayZoom , a company incorporated under the laws of
+                India, with its registered office at {getFirmAddress()}
+                <strong>(“PayZoom” or “Company”)</strong>.
               </p>
 
               <p className="landing-bg_para">
-                These Terms are a binding agreement between you and PaisaKart.
+                These Terms are a binding agreement between you and PayZoom.
                 These Terms are in addition to and not in derogation of any
-                other terms stipulated by PaisaKart from time to time. In case of
+                other terms stipulated by PayZoom from time to time. In case of
                 any conflict between these Terms and such other terms, these
                 Terms will prevail. Throughout this document, we use the terms{" "}
                 <strong>“we”</strong> and
-                <strong>“our”</strong> to refer to PaisaKart and the terms
+                <strong>“our”</strong> to refer to PayZoom and the terms
                 <strong>“you”</strong> and <strong>“your”</strong> to refer to
-                you, the User of the Platform. Both PaisaKart and the User are
+                you, the User of the Platform. Both PayZoom and the User are
                 collectively referred to as <strong>“Parties”</strong> and
                 singularly referred to as
                 <strong>“Party”</strong>.
@@ -81,15 +81,15 @@ const Terms = () => {
                   <abbr>ELIGIBILITY</abbr>
                 </h3>
                 <p className="landing-bg_para">
-                  PaisaKart’s services are available to anyone having a valid
+                  PayZoom’s services are available to anyone having a valid
                   email address and an Indian mobile phone number.
                   The&nbsp;Platform must be accessed/used only by the persons
                   who are eligible to enter into legally binding contracts under
                   the Indian Contract Act and are ‘competent to contract’
                   according to Section 11 of the Indian Contract Act. Users who
                   have been previously suspended or removed from availing any
-                  service by PaisaKart shall not be eligible to avail services
-                  from PaisaKart. Users shall not impersonate any person or
+                  service by PayZoom shall not be eligible to avail services
+                  from PayZoom. Users shall not impersonate any person or
                   entity, or falsely state or otherwise misrepresent identity,
                   age or affiliation with any person or entity.
                 </p>
@@ -150,11 +150,11 @@ const Terms = () => {
                 <p className="landing-bg_para">
                   <strong>“Confidential Information”</strong> means and includes
                   the Intellectual Property and any and all business, technical
-                  and financial information of PaisaKart or of any of its
+                  and financial information of PayZoom or of any of its
                   affiliates that is related to any of the arrangements
                   contemplated in these Terms of Use or any other document in
                   which these Terms of Use are incorporated by reference or
-                  otherwise disclosed by PaisaKart to the User any information
+                  otherwise disclosed by PayZoom to the User any information
                   which relates to its financial and/or business operations,
                   including but not limited to, specifications, models, merchant
                   lists/information samples, reports, forecasts, current or
@@ -176,14 +176,14 @@ const Terms = () => {
                   <strong>“Effective Date”</strong> or
                   <strong>“Registration Date”</strong>
                   shall mean the date of registration of account of the User on
-                  PaisaKart’s platform.
+                  PayZoom’s platform.
                 </p>
 
                 <p className="landing-bg_para">
-                  <strong>“PaisaKart Policies”</strong> shall mean and include
-                  the Terms of Use, Privacy Policy, Grievance Policy and any
-                  other such terms and conditions/policies available and updated
-                  from time to time on the PaisaKart Platform.
+                  <strong>“PayZoom Policies”</strong> shall mean and include the
+                  Terms of Use, Privacy Policy, Grievance Policy and any other
+                  such terms and conditions/policies available and updated from
+                  time to time on the PayZoom Platform.
                 </p>
 
                 <p className="landing-bg_para">
@@ -222,15 +222,15 @@ const Terms = () => {
 
                 <p className="landing-bg_para">
                   <strong>“Services”</strong> shall mean the services provided
-                  by PaisaKart and various Service Providers to the Users
-                  utilizing the PaisaKart Platform including but not limited to
+                  by PayZoom and various Service Providers to the Users
+                  utilizing the PayZoom Platform including but not limited to
                   banking services, non-banking services and other such services
                   either by itself or through a Merchant.
                 </p>
 
                 <p className="landing-bg_para">
                   <strong>“Service Provider”</strong> shall mean any banking
-                  and/or non-banking entity with which PaisaKart has, directly or
+                  and/or non-banking entity with which PayZoom has, directly or
                   indirectly, executed an agreement for facilitating
                   Transactions between such entity and its customers.
                 </p>
@@ -238,8 +238,8 @@ const Terms = () => {
                 <p className="landing-bg_para">
                   <strong>“Users”</strong> shall mean individuals&nbsp;including
                   all body&nbsp;corporates, partnerships, limited liability
-                  partnerships, etc., who are availing PaisaKart services through
-                  the PaisaKart platform.
+                  partnerships, etc., who are availing PayZoom services through
+                  the PayZoom platform.
                 </p>
               </div>
 
@@ -247,61 +247,61 @@ const Terms = () => {
                 <h3 className="h5">1. GENERAL TERMS AND CONDITIONS</h3>
                 <p>
                   These General Terms and Conditions govern the User’s access to
-                  the Services provided by PaisaKart:
+                  the Services provided by PayZoom:
                 </p>
               </div>
 
               <div className="landing-bg_para">
                 <div>
                   <u>INFORMATION SUPPLIED TO INSTANTPAY.</u> Users agree that
-                  the information provided by the Users to PaisaKart on
+                  the information provided by the Users to PayZoom on
                   registration and at all other times, including payment, is
                   true, accurate, current, and complete.
                 </div>
                 <div className="landing-bg_para">
                   <u>SECURITY OF ACCOUNT.</u> Users’ mobile number and email
-                  identifies a Users’ account with PaisaKart through which
-                  PaisaKart services are dispensed (“<strong>Account</strong>
-                  ”). PaisaKart encourages Users to choose a strong password to
+                  identifies a Users’ account with PayZoom through which PayZoom
+                  services are dispensed (“<strong>Account</strong>
+                  ”). PayZoom encourages Users to choose a strong password to
                   protect their Account. It is advised that Users do not share
-                  their password with anyone or write it down. Neither PaisaKart
+                  their password with anyone or write it down. Neither PayZoom
                   nor its Service Providers, under any circumstances, will ever
                   ask for a User's Account password or any other confidential
                   information. If a User has any reason to believe that his
                   Account is no longer secure, then the User shall immediately
-                  change the Account password and indemnify PaisaKart from any
+                  change the Account password and indemnify PayZoom from any
                   liabilities that may arise from the misuse of such User’s
                   Account.
                 </div>
 
                 <div className="landing-bg_para">
                   <u>PRIVACY POLICY.</u> All information collected from a User
-                  pursuant to provision of PaisaKart’s services, and information
+                  pursuant to provision of PayZoom’s services, and information
                   collected by Merchants or Digi Kendras during the performance
                   of these Terms of Use or Applicable Agreement, is subject to
-                  PaisaKart’s
+                  PayZoom’s
                   <a href="/privacy-policy">Privacy Policy</a>.
                 </div>
 
                 <div className="landing-bg_para">
                   <u>RECLAIMING INACTIVE ACCOUNTS.</u>. If an Account is found
-                  to be overly inactive, the Account may be reclaimed by
-                  PaisaKart without providing notice to the concerned User. An
-                  Account is considered as inactive if the concerned User is not
-                  signing in and/or has not done any transactions for more than
-                  6 consecutive months.
+                  to be overly inactive, the Account may be reclaimed by PayZoom
+                  without providing notice to the concerned User. An Account is
+                  considered as inactive if the concerned User is not signing in
+                  and/or has not done any transactions for more than 6
+                  consecutive months.
                 </div>
 
                 <div className="landing-bg_para">
-                  <u>THIRD PARTY SITES, PRODUCTS AND SERVICES.</u> PaisaKart’s
+                  <u>THIRD PARTY SITES, PRODUCTS AND SERVICES.</u> PayZoom’s
                   services and/or the Site may include links or references to
                   other web sites or services solely for the Users’ convenience
-                  (“<strong>Reference Sites</strong>”). PaisaKart does not
-                  endorse any such Reference Sites or the information,
-                  materials, products, or services contained on or accessible
-                  through Reference Sites. Correspondence or business dealings
-                  between Users and concerned Reference Sites are solely between
-                  such User and the concerned Reference Site. Access and use of
+                  (“<strong>Reference Sites</strong>”). PayZoom does not endorse
+                  any such Reference Sites or the information, materials,
+                  products, or services contained on or accessible through
+                  Reference Sites. Correspondence or business dealings between
+                  Users and concerned Reference Sites are solely between such
+                  User and the concerned Reference Site. Access and use of
                   Reference Sites, including the information, materials,
                   products, and services on or available through Reference Sites
                   is solely at the concerned User’s own risk.
@@ -311,20 +311,19 @@ const Terms = () => {
                   <u>COMMUNICATION POLICY.</u> The User hereby accepts that:
                   <div className="landing-bg_para">
                     <div className="landing-bg_para">
-                      PaisaKart may send transactional or non-transactional
+                      PayZoom may send transactional or non-transactional
                       business communication in the form of SMS or Email or Push
                       notifications as part of its efforts to fulfil the User’s
                       request or service your account. A User may continue to
                       receive transactional and critical&nbsp;communication from
-                      PaisaKart even after opting out of marketing
-                      communications.
+                      PayZoom even after opting out of marketing communications.
                     </div>
                     <div className="landing-bg_para">
-                      PaisaKart will make the best efforts to provide
+                      PayZoom will make the best efforts to provide
                       notifications and it shall be deemed that the User shall
                       have received the information sent from the Company during
-                      the course of, or in relation to, using the PaisaKart
-                      Platform or availing any Services. PaisaKart shall not be
+                      the course of, or in relation to, using the PayZoom
+                      Platform or availing any Services. PayZoom shall not be
                       under any obligation to confirm the authenticity of the
                       person(s) receiving the alert. The User cannot hold the
                       Company liable for non-availability of any notification
@@ -337,7 +336,7 @@ const Terms = () => {
                   <u>LIMITATION OF LIABILITY.</u>
                   <div className="landing-bg_para">
                     <div className="landing-bg_para">
-                      In no event will PaisaKart or its directors, agents,
+                      In no event will PayZoom or its directors, agents,
                       officers, or employees be liable to a User for any
                       special, indirect, incidental, consequential, punitive, or
                       exemplary damages (including without limitation lost
@@ -347,16 +346,16 @@ const Terms = () => {
                       any kind arising out of or relating to.
                       <p className="mt-2">
                         a) &nbsp; this Terms of Use or any other agreement
-                        entered by a User with PaisaKart,
+                        entered by a User with PayZoom,
                       </p>
                       <p>
-                        b) &nbsp; PaisaKart’s services, the Site or any Reference
+                        b) &nbsp; PayZoom’s services, the Site or any Reference
                         site, or
                       </p>
                       <p>
-                        c)&nbsp; User’s use or inability to use PaisaKart’s
+                        c)&nbsp; User’s use or inability to use PayZoom’s
                         services, the Site or any Reference Sites, even if
-                        PaisaKart or a PaisaKart authorized representative has
+                        PayZoom or a PayZoom authorized representative has
                         advised of the possibility of such damages,
                       </p>
                       <p>
@@ -377,19 +376,19 @@ const Terms = () => {
                     </div>
 
                     <div className="landing-bg_para">
-                      It shall be at the sole discretion of PaisaKart to reverse
+                      It shall be at the sole discretion of PayZoom to reverse
                       any transaction subject to approval of the concerned
                       Service Provider. Notwithstanding the above, if any court
-                      of law finds that PaisaKart or its directors, officers, or
+                      of law finds that PayZoom or its directors, officers, or
                       employees, are liable to indemnify a concerned User
                       despite the existence of this Clause 1.7, such liability
                       shall not exceed the amount paid by the concerned User, if
-                      any, for using the portion of the PaisaKart’s services or
+                      any, for using the portion of the PayZoom’s services or
                       the Site giving rise to the cause of action.
                     </div>
 
                     <div className="landing-bg_para">
-                      Users acknowledge and agree that PaisaKart has offered its
+                      Users acknowledge and agree that PayZoom has offered its
                       products and services, set its prices, and entered into
                       these Terms of Use and Applicable Agreement in reliance
                       upon the warranty, disclaimers, and the limitations of
@@ -400,32 +399,31 @@ const Terms = () => {
                       Users acknowledge that the warranty, disclaimers, and the
                       limitations of liability set forth herein reflect a
                       reasonable and fair allocation of risk between Users and
-                      PaisaKart, and that the warranty, disclaimers, and the
+                      PayZoom, and that the warranty, disclaimers, and the
                       limitations of liability set forth herein form an
-                      essential basis of the bargain between Users and PaisaKart.
-                      PaisaKart would not be able to provide the services to
-                      Users on an economically reasonable basis without these
+                      essential basis of the bargain between Users and PayZoom.
+                      PayZoom would not be able to provide the services to Users
+                      on an economically reasonable basis without these
                       limitations.
                     </div>
                     <div className="landing-bg_para">
-                      Users understand that PaisaKart or the Service Providers
-                      may reject authentication and/or authorization of
-                      transaction placed by Users for any reason including but
-                      not limited to insufficient funds, incorrect
-                      authentication details provided, expired card/bank
-                      account, risk management, suspicion of fraudulent
-                      transactions, selling of restricted or banned items, use
-                      of compromised cards or bank account numbers, use of
-                      banned/blacklisted cards or bank account numbers, use of
-                      suspicious API or in accordance with the regulator,
-                      Issuing, Acquiring Institution and/or Card
-                      Network&nbsp;rules, guidelines, regulations, etc. and any
-                      other laws, rules, regulations, guidelines in force in
-                      India.
+                      Users understand that PayZoom or the Service Providers may
+                      reject authentication and/or authorization of transaction
+                      placed by Users for any reason including but not limited
+                      to insufficient funds, incorrect authentication details
+                      provided, expired card/bank account, risk management,
+                      suspicion of fraudulent transactions, selling of
+                      restricted or banned items, use of compromised cards or
+                      bank account numbers, use of banned/blacklisted cards or
+                      bank account numbers, use of suspicious API or in
+                      accordance with the regulator, Issuing, Acquiring
+                      Institution and/or Card Network&nbsp;rules, guidelines,
+                      regulations, etc. and any other laws, rules, regulations,
+                      guidelines in force in India.
                     </div>
                     <div className="landing-bg_para">
                       User further acknowledge that as a security measure
-                      PaisaKart and/or the Service Providers may at our sole
+                      PayZoom and/or the Service Providers may at our sole
                       discretion, permanently or temporarily, block any card
                       number, account numbers, group of cards or transactions
                       from any specific blocked or blacklisted cards / accounts,
@@ -434,12 +432,12 @@ const Terms = () => {
                       wishes to undertake.
                     </div>
                     <div className="landing-bg_para">
-                      As a risk management tool, PaisaKart and/or the Service
+                      As a risk management tool, PayZoom and/or the Service
                       Providers reserve the right to limit or restrict
                       transaction size, amount and/or monthly volume at any
-                      time. PaisaKart will consider a variety of factors in
-                      making a decision and such determination will be at our
-                      sole discretion.
+                      time. PayZoom will consider a variety of factors in making
+                      a decision and such determination will be at our sole
+                      discretion.
                     </div>
                   </div>
                 </div>
@@ -448,10 +446,10 @@ const Terms = () => {
                   <u>FRAUDULENT TRANSACTIONS</u>
                   <div className="landing-bg_para">
                     <div className="landing-bg_para">
-                      If PaisaKart is intimated, by the bank, that a customer has
+                      If PayZoom is intimated, by the bank, that a customer has
                       reported an unauthorized debit/chargeback of the
                       customer’s Payment Instrument (“Fraudulent Transaction”),
-                      the User shall be notified by PaisaKart. The User shall be
+                      the User shall be notified by PayZoom. The User shall be
                       entitled to furnish documents and information pertaining
                       to the Transaction associated with the Chargeback within
                       one&nbsp;(1) day&nbsp;(or such other period specified by
@@ -466,14 +464,14 @@ const Terms = () => {
                       <p>
                         b)&nbsp; the bank is not satisfied with the Chargeback
                         documents furnished by the User, then the bank shall be
-                        entitled to order the PaisaKart to affect a reversal of
+                        entitled to order the PayZoom to affect a reversal of
                         the debit of the Chargeback Amount associated with the
                         Chargeback such that the said chargeback amount is
                         credited to the customer’s Payment Instrument.
                       </p>
                     </div>
                     <div className="landing-bg_para">
-                      PaisaKart shall also be entitled to suspend the settlement
+                      PayZoom shall also be entitled to suspend the settlement
                       of the amount under dispute or hold the value of
                       transaction under dispute from following the settlement of
                       the transaction during the pendency of inquiries,
@@ -500,10 +498,10 @@ const Terms = () => {
                     </div>
                     <div className="landing-bg_para">
                       The User further agrees and acknowledges that following
-                      PaisaKart incurring the charge stipulated in clause
+                      PayZoom incurring the charge stipulated in clause
                       1.8(iii), if the available Transaction Amounts are
                       insufficient for deduction of the Chargeback Amount, then
-                      PaisaKart is entitled to issue a debit note seeking
+                      PayZoom is entitled to issue a debit note seeking
                       reimbursement of the Chargeback Amount from the User. The
                       User shall reimburse the Chargeback Amount within three
                       (3) working days of receipt of the debit note.
@@ -519,17 +517,17 @@ const Terms = () => {
                       responsibility of User.
                     </div>
                     <div className="landing-bg_para">
-                      The User hereby acknowledges and agrees that PaisaKart is a
+                      The User hereby acknowledges and agrees that PayZoom is a
                       facilitator for payment processing services which are
-                      requested by Users and PaisaKart shall not be responsible
+                      requested by Users and PayZoom shall not be responsible
                       for any unauthorized transaction done by any person
                       including third party and amounting to infringement of
                       another’s rights or any chargebacks claimed by the
                       customers. It will be the responsibility of Users to
                       ensure due protection while transacting online or
-                      otherwise. PaisaKart will assist the Users in settling any
+                      otherwise. PayZoom will assist the Users in settling any
                       queries related to the Services that arise between the
-                      Users, and its customers. However, PaisaKart shall bear no
+                      Users, and its customers. However, PayZoom shall bear no
                       responsibility with respect to the dispute or query
                       related to payment made by the customers to the Users.
                     </div>
@@ -562,9 +560,9 @@ const Terms = () => {
                       full end to end transaction details/information
                       collected/carried/processed as part of the message/payment
                       instructions. The User also acknowledges and agrees that
-                      the account balance maintained by the Users on PaisaKart
+                      the account balance maintained by the Users on PayZoom
                       Platform shall be non-interest bearing and shall be
-                      forfeited by PaisaKart if found lying unused for more than
+                      forfeited by PayZoom if found lying unused for more than
                       365 days.
                     </div>
                   </div>
@@ -582,17 +580,17 @@ const Terms = () => {
                       and risks associated with the same.
                     </div>
                     <div className="landing-bg_para">
-                      it shall immediately intimate PaisaKart of any violation or
+                      it shall immediately intimate PayZoom of any violation or
                       potential violation of these Terms of Use or of other
                       circumstances that may cause damage to the goodwill and
-                      reputation of PaisaKart,
+                      reputation of PayZoom,
                     </div>
                     <div className="landing-bg_para">
                       it shall be responsible to obtain any and all consents and
                       approvals that are required from regulatory or
                       governmental authorities, including any consent from
                       customers required to transfer data to the User and/or the
-                      PaisaKart Platform, as the case may be, in accordance with
+                      PayZoom Platform, as the case may be, in accordance with
                       Applicable Law,
                     </div>
 
@@ -611,13 +609,13 @@ const Terms = () => {
                     <div className="landing-bg_para">
                       it shall not access (or attempt to access) the website and
                       the Products by any means other than through the interface
-                      that is provided by PaisaKart. It shall not use any
+                      that is provided by PayZoom. It shall not use any
                       deep-link, page scrape, robot, spider or other automatic
                       device, program, algorithm or methodology, or any similar
                       or equivalent manual process, to access, acquire, copy or
-                      monitor any portion of the PaisaKart Platform, or in any
-                      way reproduce or circumvent the navigational structure or
-                      presentation of the platform, without PaisaKart’s express
+                      monitor any portion of the PayZoom Platform, or in any way
+                      reproduce or circumvent the navigational structure or
+                      presentation of the platform, without PayZoom’s express
                       prior written consent.
                     </div>
                     <div className="landing-bg_para">
@@ -633,7 +631,7 @@ const Terms = () => {
                       not filed by the User as per sec 139(1) of Income Tax Act,
                       1961 for the previous financial years starting from FY
                       2018-19 and undertake to indemnify and keep indemnified
-                      PaisaKart against any and all losses, claims, liabilities,
+                      PayZoom against any and all losses, claims, liabilities,
                       costs, taxes, interest, penalties imposed by any
                       government and regulatory authority for non-complying with
                       Section 206AB or any other provisions of Income Tax Act,
@@ -647,17 +645,17 @@ const Terms = () => {
 
                 <div className="landing-bg_para">
                   <u>INDEMNIFICATION.</u>
-                  User agrees to indemnify, save, and hold PaisaKart, its
+                  User agrees to indemnify, save, and hold PayZoom, its
                   affiliates, contractors, employees, officers, directors,
                   agents and its third-party suppliers, licensors, and partners
                   harmless from any and all claims, demands, actions, suits
-                  which may be threatened or brought against PaisaKart, and also
+                  which may be threatened or brought against PayZoom, and also
                   against all losses, damages, liabilities, costs, charges and
                   expenses, including without limitation, legal fees and
                   expenses arising out of or related to:
                   <div className="landing-bg_para">
                     <div className="landing-bg_para">
-                      Users’ use or misuse of PaisaKart’s services or of the
+                      Users’ use or misuse of PayZoom’s services or of the
                       Site/application
                     </div>
                     <div className="landing-bg_para">
@@ -671,32 +669,32 @@ const Terms = () => {
                     </div>
                     <div className="landing-bg_para">
                       any claim or legal notice or quasi-legal proceedings to
-                      which PaisaKart may be required to become party or to which
-                      PaisaKart may be subjected by any person including any
+                      which PayZoom may be required to become party or to which
+                      PayZoom may be subjected by any person including any
                       governmental authority, by reason of breach of any
                       Applicable Law,
                     </div>
                     <div className="landing-bg_para">
                       due to failure of a User to obtain any required statutory
                       or regulatory approval necessary for the performance of
-                      its obligations in the Applicable Agreement with PaisaKart,
+                      its obligations in the Applicable Agreement with PayZoom,
                     </div>
                     <div className="landing-bg_para">
                       all liability, claims, damages, costs, expenses suffered
-                      or incurred by PaisaKart as a result of any act or
-                      violation by User under Section 269ST of the Income Tax
-                      Act, 1961 while acting as collection agent of the Company.
+                      or incurred by PayZoom as a result of any act or violation
+                      by User under Section 269ST of the Income Tax Act, 1961
+                      while acting as collection agent of the Company.
                     </div>
                     <div className="landing-bg_para">
-                      PaisaKart reserves the right, at User’s expense, to assume
+                      PayZoom reserves the right, at User’s expense, to assume
                       the exclusive defense and control of any matter, including
                       rights to settle, for which concerned User is required to
-                      indemnify PaisaKart. The User agrees to cooperate with
-                      PaisaKart’s defense and settlement of these claims.
-                      PaisaKart will use reasonable efforts to notify the User of
-                      any claim, action, or proceeding brought by a third party
-                      that is subject to the foregoing indemnification upon
-                      becoming aware of it.
+                      indemnify PayZoom. The User agrees to cooperate with
+                      PayZoom’s defense and settlement of these claims. PayZoom
+                      will use reasonable efforts to notify the User of any
+                      claim, action, or proceeding brought by a third party that
+                      is subject to the foregoing indemnification upon becoming
+                      aware of it.
                     </div>
                   </div>
                 </div>
@@ -704,33 +702,33 @@ const Terms = () => {
                 <div className="landing-bg_para">
                   <u>DISCLAIMER</u>
                   To the fullest extent permissible pursuant to Applicable Law,
-                  PaisaKart and its officers, directors, employees, and agents
+                  PayZoom and its officers, directors, employees, and agents
                   disclaim all warranties, express or implied, including, but
                   not limited to, implied warranties of merchantability, fitness
                   for a particular purpose, and non-infringement of proprietary
                   rights. No advice or information, whether oral or written,
-                  obtained by a User from PaisaKart or through PaisaKart’s
-                  services or the Site will create any warranty not expressly
-                  stated herein. PaisaKart does not authorize anyone to make any
-                  warranty on its behalf and Users should not rely on any such
-                  statement. Users acknowledge that PaisaKart is a reseller and
-                  is not liable for any third-party seller’s obligations. It is
-                  User’s responsibility to evaluate the accuracy, completeness
-                  and usefulness of all opinions, advice, merchandise and other
+                  obtained by a User from PayZoom or through PayZoom’s services
+                  or the Site will create any warranty not expressly stated
+                  herein. PayZoom does not authorize anyone to make any warranty
+                  on its behalf and Users should not rely on any such statement.
+                  Users acknowledge that PayZoom is a reseller and is not liable
+                  for any third-party seller’s obligations. It is User’s
+                  responsibility to evaluate the accuracy, completeness and
+                  usefulness of all opinions, advice, merchandise and other
                   information provided through the Site or on the internet
-                  generally. PaisaKart does not warrant that its services will be
+                  generally. PayZoom does not warrant that its services will be
                   uninterrupted, or free of errors, viruses or other harmful
                   components, and that any of the foregoing defects will be
-                  corrected. PaisaKart’s services and the Site and any data,
+                  corrected. PayZoom’s services and the Site and any data,
                   information, third party software, Reference Sites, or
                   Software made available in conjunction with or through its
                   services and the Site are provided on an “as is” and “as
                   available”, “with all faults” basis and without warranties or
-                  representations of any kind either express or implied.
-                  PaisaKart and its third-party suppliers, licensors, and
-                  partners do not warrant or make any representations regarding
-                  the use or the results of the use of PaisaKart’s services, the
-                  Site or any Reference Sites in terms of correctness, accuracy,
+                  representations of any kind either express or implied. PayZoom
+                  and its third-party suppliers, licensors, and partners do not
+                  warrant or make any representations regarding the use or the
+                  results of the use of PayZoom’s services, the Site or any
+                  Reference Sites in terms of correctness, accuracy,
                   reliability, or otherwise.
                 </div>
 
@@ -738,25 +736,25 @@ const Terms = () => {
                   <u>INTELLECTUAL PROPERTY.</u>
                   <div className="custom-list points-alpha mt-3">
                     <div className="landing-bg_para">
-                      PaisaKart’s services and the Site are owned and operated by
-                      PaisaKart and/or third-party licensors. The visual
+                      PayZoom’s services and the Site are owned and operated by
+                      PayZoom and/or third-party licensors. The visual
                       interfaces, graphics, design, compilation, information,
                       computer code (including source code and object code),
                       products, software, services, and all other elements of
-                      PaisaKart’s services and the Site provided by PaisaKart (the{" "}
+                      PayZoom’s services and the Site provided by PayZoom (the{" "}
                       <strong> “Materials”</strong>) are protected by Applicable
-                      Law. As between User and PaisaKart, all Materials and
-                      PaisaKart’s Intellectual Property are the property of
-                      PaisaKart and/or third-party licensors or suppliers. User
-                      agrees not to remove, obscure, or alter PaisaKart or any
+                      Law. As between User and PayZoom, all Materials and
+                      PayZoom’s Intellectual Property are the property of
+                      PayZoom and/or third-party licensors or suppliers. User
+                      agrees not to remove, obscure, or alter PayZoom or any
                       third party's copyright, patent, trademark, or other
                       proprietary rights notices affixed to or contained within
-                      or accessed in conjunction with or through PaisaKart’s
-                      services. Except as expressly authorized by PaisaKart, the
+                      or accessed in conjunction with or through PayZoom’s
+                      services. Except as expressly authorized by PayZoom, the
                       User agrees not to sell, license, distribute, copy,
                       modify, publicly perform or display, transmit, publish,
                       edit, adapt, create derivative works from, or otherwise
-                      make unauthorized use of the Materials or PaisaKart’s
+                      make unauthorized use of the Materials or PayZoom’s
                       Intellectual Property.
                     </div>
                     <div className="landing-bg_para">
@@ -772,13 +770,13 @@ const Terms = () => {
                       of the other’s Intellectual Property.
                     </div>
                     <div className="landing-bg_para">
-                      If Users’ have comments regarding PaisaKart's services and
+                      If Users’ have comments regarding PayZoom's services and
                       the Site or ideas on how to improve it, please write to
                       our 24x7 Helpdesk at help@instantpay.in. Please note that
                       by doing so, concerned User hereby irrevocably assign to
-                      PaisaKart, and shall assign to PaisaKart, all right, title
-                      and interest in and to all ideas and suggestions and any
-                      and all worldwide intellectual property rights associated
+                      PayZoom, and shall assign to PayZoom, all right, title and
+                      interest in and to all ideas and suggestions and any and
+                      all worldwide intellectual property rights associated
                       therewith. The concerned User agrees to perform such acts
                       and execute such documents as may be reasonably necessary
                       to perfect the foregoing rights.
@@ -841,7 +839,7 @@ const Terms = () => {
 
                 <div className="landing-bg_para">
                   <u>MODIFICATION.</u>
-                  PaisaKart reserves the right to change, modify, add, or remove
+                  PayZoom reserves the right to change, modify, add, or remove
                   these Terms of Use, either in its entirety or a part thereof
                   (each, a<strong>“change”</strong>) at any time by posting a
                   notification to the Site or otherwise communicating the
@@ -922,14 +920,14 @@ const Terms = () => {
                 <div className="landing-bg_para">
                   <u>TERMINATION</u>
                   <div className="landing-bg_para">
-                    PaisaKart reserves the right to suspend or terminate the
-                    User’s access to PaisaKart Platform and Services without
-                    prior notice and without any liability to the User or any
-                    third party, in the event,
+                    PayZoom reserves the right to suspend or terminate the
+                    User’s access to PayZoom Platform and Services without prior
+                    notice and without any liability to the User or any third
+                    party, in the event,
                     <div className="landing-bg_para">
                       <p>
                         (a) the User is in a breach of these Terms of Use or any
-                        PaisaKart Policies;
+                        PayZoom Policies;
                       </p>
                       <p>
                         (b) the User is engaged or is suspected to engage in any
@@ -937,16 +935,16 @@ const Terms = () => {
                       </p>
                       <p>
                         (b) the User provides any information which is
-                        incomplete, inaccurate or false or PaisaKart has reason
-                        to believe that such information is incomplete,
-                        inaccurate or false.
+                        incomplete, inaccurate or false or PayZoom has reason to
+                        believe that such information is incomplete, inaccurate
+                        or false.
                       </p>
                     </div>
                     <div className="landing-bg_para">
-                      Any suspension/termination of the User’s access to
-                      PaisaKart Platform and Services shall be without prejudice
-                      to PaisaKart’s right to exercise any other remedy available
-                      to it under the applicable law.
+                      Any suspension/termination of the User’s access to PayZoom
+                      Platform and Services shall be without prejudice to
+                      PayZoom’s right to exercise any other remedy available to
+                      it under the applicable law.
                     </div>
                   </div>
                 </div>
@@ -961,7 +959,7 @@ const Terms = () => {
 
                 <div className="landing-bg_para">
                   <u>FORCE MAJEURE .</u>
-                  PaisaKart shall not be liable for failure to perform its
+                  PayZoom shall not be liable for failure to perform its
                   obligations under these Terms of Use to the extent such
                   failure is due to causes beyond its reasonable control. In the
                   event of a force majeure, the Company if unable to perform
@@ -997,7 +995,7 @@ const Terms = () => {
                     <div className="landing-bg_para">
                       <u>ASSIGNMENT</u>. These Terms of Use and any rights
                       granted hereunder, shall not be assignable by the User,
-                      but may be assigned by PaisaKart without restriction. Any
+                      but may be assigned by PayZoom without restriction. Any
                       assignment attempted to be made in violation of this
                       provision shall be void and of no effect.
                     </div>
@@ -1010,29 +1008,27 @@ const Terms = () => {
                     </div>
 
                     <div className="landing-bg_para">
-                      <u>NOTICE</u>. PaisaKart may provide Users with notices and
+                      <u>NOTICE</u>. PayZoom may provide Users with notices and
                       communications by email, regular mail, or posts on the
-                      PaisaKart website(s) or by any other reasonable means.
-                      Except as otherwise set forth herein, notice to PaisaKart
+                      PayZoom website(s) or by any other reasonable means.
+                      Except as otherwise set forth herein, notice to PayZoom
                       must be sent by courier or registered post to the Legal
-                      Department, Jab Wallet Pvt. Ltd., 1st Floor,
-                      B1/A5, Mohan Cooperative Industrial Estate, New Delhi -
-                      110044, India.
+                      Department, {getFirmAddress()}
                     </div>
 
                     <div className="landing-bg_para">
-                      <u>WAIVER</u>. The failure of PaisaKart to exercise or
+                      <u>WAIVER</u>. The failure of PayZoom to exercise or
                       enforce any right or provision of these Terms of Use will
                       not constitute a waiver of such right or provision. Any
                       waiver of any provision of these Terms of Use will be
-                      effective only if in writing and signed by PaisaKart.
+                      effective only if in writing and signed by PayZoom.
                     </div>
 
                     <div className="landing-bg_para">
                       <u>RELATIONSHIP BETWEEN THE PARTIES</u>. The Terms of Use
                       are not intended by the Parties to constitute or create a
                       joint venture, pooling arrangement, partnership, agency or
-                      formal business organization of any kind. PaisaKart and the
+                      formal business organization of any kind. PayZoom and the
                       User shall be independent contractors with each other for
                       all purposes at all times and neither Party shall act as
                       or hold itself out as an agent or representative of the

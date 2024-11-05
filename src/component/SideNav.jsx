@@ -652,7 +652,7 @@ export default function MiniDrawer(props) {
                 zIndex: "1000",
                 display: { xs: "none", sm: "block" },
                 "& .MuiDrawer-paper": {
-                  background: "#E87204",
+                  background: "#022e6b",
                   boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
                   backdropFilter: "blur(10px)",
                   border: "1px solid rgba(35, 25, 66, 0.3)",

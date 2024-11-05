@@ -14,7 +14,7 @@ const ChatBox = () => {
         target="_blank"
         rel="noreferrer"
       >
-        <img
+        {/* <img
           src={chat}
           type="button"
           className="open-button-wp"
@@ -24,7 +24,7 @@ const ChatBox = () => {
           //   navigate("whatsapp://send?abid=8745095350&text=Hello%2C%20World!");
           // }}
           width="50px"
-        />
+        /> */}
       </a>
     </div>
   );

@@ -499,6 +499,15 @@ body {
   background-size: cover;
   background-image: url(../assets/borderBg.webp);
 }
+.landing-bg_PayZoom_font {
+  align-items: center;
+  color: $primary-color1;
+  font-size: 4rem;
+  font-weight: bolder;
+  letter-spacing: 0.05em;
+  text-align: left;
+  font-family: "poppins" !important;
+}
 
 .double-quots-mark {
   position: relative;
@@ -715,7 +724,7 @@ body {
 }
 
 .nav {
-  background: #e6852b;
+  background: #8c3131;
 }
 
 //number input
