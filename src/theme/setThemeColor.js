@@ -1,15 +1,15 @@
 export const primaryColor = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
+  if (process.env.REACT_APP_TITLE === "PayZoom") {
     return "#f48f26";
   }
 };
 export const primaryLight = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
+  if (process.env.REACT_APP_TITLE === "PayZ") {
     return "#9f86c0";
   }
 };
 export const primaryLightest = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
+  if (process.env.REACT_APP_TITLE === "PayZ") {
     return "#f48f26";
   }
 };
@@ -19,7 +19,7 @@ export const getActiveColor = () => {
   }
 };
 export const secondaryColor = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
+  if (process.env.REACT_APP_TITLE === "PayZ") {
     return "#3f3f3f";
   }
 };
@@ -29,18 +29,18 @@ export const getSecondaryColor = () => {
   }
 };
 export const getHoverActive = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
+  if (process.env.REACT_APP_TITLE === "PayZ") {
     return "#3f3f3f";
   }
 };
 export const getHoverInActive = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
+  if (process.env.REACT_APP_TITLE === "PayZ") {
     return "#ffa23f";
   }
 };
 
 export const getTableHeadRowColor = () => {
-  if (process.env.REACT_APP_TITLE === "PaisaKart") {
+  if (process.env.REACT_APP_TITLE === "PayZ") {
     return "#3f3f3f";
   }
 };
@@ -73,7 +73,7 @@ export const getUserColor = (role) => {
       return "#ff9800";
     }
     
-  } else if (process.env.REACT_APP_TITLE === "PaisaKart") {
+  } else if (process.env.REACT_APP_TITLE === "PayZ") {
     if (role === "Asm") {
       return "#f48f26";
     } else if (role === "Ad") {
