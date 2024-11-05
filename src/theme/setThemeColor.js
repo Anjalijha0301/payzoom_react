@@ -1,6 +1,6 @@
 export const primaryColor = () => {
   if (process.env.REACT_APP_TITLE === "PayZoom") {
-    return "#f48f26";
+    return "#022e6b";
   }
 };
 export const primaryLight = () => {
