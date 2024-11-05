@@ -291,7 +291,7 @@ export default function MiniDrawer(props) {
               padding: "4px",
               display: "block",
               margin: "0 auto",
-              backgroundColor: whiteColor(),
+              // backgroundColor: whiteColor(),
             }}
           />
         )}

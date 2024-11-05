@@ -171,9 +171,10 @@ import creditReqGuidelines from "./assets/credit-request-disclaimer.png";
 import irctcAuth from "./assets/irctc-auth.png";
 import irctcTravel from "./assets_travel/images/irctc.jpg";
 import payzoomLogo from "../src/assets/payzoom/payzoom_logo.png";
+import PayZoomLogo_sm from "./assets/payzoom/favicon.png";
 
 export const Logo = biggpayLogo;
-export const smLogo = biggpayLogo_sm;
+export const smLogo = PayZoomLogo_sm;
 
 //bbps export
 export const bbpsPng = bbps;
