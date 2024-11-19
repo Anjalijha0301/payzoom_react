@@ -9,7 +9,6 @@ import { apiErrorToast, okSuccessToast } from "../utils/ToastUtil";
 import { postJsonData } from "../network/ApiController";
 import { useState } from "react";
 import Spinner from "../commons/Spinner";
-
 const DmrAddRemitterModal = ({
   rem_mobile,
   getRemitterStatus,

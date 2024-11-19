@@ -33,15 +33,20 @@ import OutletRegistration from "../component/OutletRegistration";
 import { banking } from "../_nav";
 import HNavButton from "../component/HNavButton";
 import { useNavigate } from "react-router-dom";
+import { RssFeed } from "@mui/icons-material";
+import RemitterKyc from "../modals/RemitterKyc";
+import Mount from "../component/Mount";
+import DmtAddRemModal from "../modals/DmtAddRemModal";
 
 const MoneyTransferView = () => {
   const [infoFetchedMob, setInfoFetchedMob] = useState(false);
   const [request, setRequest] = useState(false);
   const [remitterStatus, setRemitterStatus] = useState();
-
+  const [remRefKey, setRemRefKey] = useState({});
   const [search, setSearch] = useState("");
   const [mobile, setMobile] = useState("");
   const [bene, setBene] = useState([]);
+  const [openRemKyc, setOpenRemKyc] = useState(false);
 
   const [filteredBenelist, setFilteredBenelist] = useState([]);
   const [otpRefId, setOtpRefId] = useState("");
@@ -49,15 +54,21 @@ const MoneyTransferView = () => {
   const [addNewRem, setAddNewRem] = useState(false);
   const [isValAccNum, setisValAccNum] = useState(true);
   const [isMobv, setIsMobv] = useState(true);
-
-  //
+  const [dmr2RemRes, setDmr2RemRes] = useState();
   const authCtx = useContext(AuthContext);
   const user = authCtx.user;
+  const userLat = authCtx.location.lat;
+  const userLong = authCtx.location.long;
+
   const navigate = useNavigate();
+
+  const handleCloseKycModal = () => {
+    setOpenRemKyc(false); // Close the modal when this function is called
+  };
 
   useEffect(() => {
     if (search) {
-      const myList = bene.filter((item) => {
+      const myList = bene?.filter((item) => {
         // console.log("item", item);
         return item.name
           ? item.name.toUpperCase().includes(search.toUpperCase())
@@ -72,6 +83,8 @@ const MoneyTransferView = () => {
   }, [search, bene]);
 
   const getRemitterStatus = (number) => {
+    console.log("calling api");
+
     postJsonData(
       dmtValue === "dmt1"
         ? ApiEndpoints.GET_REMMITTER_STATUS
@@ -79,9 +92,12 @@ const MoneyTransferView = () => {
       {
         number: number,
         type: "M",
+        latitude: userLat,
+        longitude: userLong,
       },
       setRequest,
       (res) => {
+        console.log("res in dmt 2 =====", res);
         if (res && res.status === 200 && res.data.message === "OTP Sent") {
           setOtpRefId(res.data.otpReference);
           setVerifyotp(true);
@@ -93,6 +109,7 @@ const MoneyTransferView = () => {
           setInfoFetchedMob(true);
           setNumberList("");
         } else {
+          console.log("im here3");
           setRemitterStatus();
         }
       },
@@ -100,14 +117,27 @@ const MoneyTransferView = () => {
         if (error && error) {
           if (
             error.response.status === 404 &&
+            error.response.data.message === "Please do remitter e-kyc."
+          ) {
+            if (dmtValue == "dmt2") {
+              console.log("errorin", error);
+              setOpenRemKyc(true);
+              // setOtpRefId(error?.response?.data?.otpReference);
+            }
+          }
+          if (
+            error.response.status === 404 &&
             error.response.data.message === "Remitter Not Found"
           ) {
-            if (dmtValue === "dmt2") {
-              setOtpRefId(error?.response?.data?.otpReference);
+            if (dmtValue === "dmt1") {
+              setRemRefKey(error.response.data.data);
             }
             setAddNewRem(true);
-          } else {
-            apiErrorToast(error);
+          }
+          if (error?.response?.data?.step == 3) {
+            console.log("im here");
+            setVerifyotp(true);
+            setDmr2RemRes(error?.response?.data?.data);
           }
         }
       }
@@ -205,6 +235,8 @@ const MoneyTransferView = () => {
       }
     );
   };
+
+  console.log("dmtValue", dmtValue);
 
   return (
     <>
@@ -471,11 +503,13 @@ const MoneyTransferView = () => {
                       {infoFetchedMob && infoFetchedMob && (
                         <div style={{ width: "100%" }}>
                           <Grid item md={12} xs={12}>
-                            <NameChangeModal
-                              remitterStatus={remitterStatus}
-                              rem_mobile={mobile}
-                              getRemitterStatus={getRemitterStatus}
-                            />
+                            <Mount visible={remitterStatus.firstName}>
+                              <NameChangeModal
+                                remitterStatus={remitterStatus}
+                                rem_mobile={mobile}
+                                getRemitterStatus={getRemitterStatus}
+                              />
+                            </Mount>
                           </Grid>
                           <Grid item md={12} xs={12}>
                             {/* <FormControl> */}
@@ -494,6 +528,8 @@ const MoneyTransferView = () => {
                                       ? currencySetter(
                                           remitterStatus.limitAvailable
                                         )
+                                      : dmtValue === "dmt2"
+                                      ? currencySetter(remitterStatus.limit)
                                       : remitterStatus.bank1_limit !== 0
                                       ? currencySetter(
                                           remitterStatus.bank1_limit
@@ -643,7 +679,7 @@ const MoneyTransferView = () => {
                     }}
                   >
                     <Typography sx={{ fontSize: "18px", fontWeight: "bold" }}>
-                      Beneficiary List ({bene.length})
+                      Beneficiary List ({bene?.length})
                     </Typography>
                     <DmrAddBeneficiaryModal
                       dmtValue={dmtValue}
@@ -683,16 +719,16 @@ const MoneyTransferView = () => {
                       paddingBottom: "8px",
                     }}
                   >
-                    {bene.length <= 0 ? (
+                    {bene?.length <= 0 ? (
                       <Typography sx={{ mt: 2 }}>
                         No Beneficiary found.
                       </Typography>
-                    ) : filteredBenelist.length <= 0 ? (
+                    ) : filteredBenelist?.length <= 0 ? (
                       <Typography sx={{ mt: 2 }}>
                         No Beneficiary found.
                       </Typography>
                     ) : (
-                      filteredBenelist.map((ben, index) => {
+                      filteredBenelist?.map((ben, index) => {
                         return (
                           <BeneCardComponent
                             dmtValue={dmtValue}
@@ -711,7 +747,7 @@ const MoneyTransferView = () => {
               )}
             </Grid>
             {addNewRem && addNewRem && (
-              <DmrAddRemitterModal
+              <DmtAddRemModal
                 rem_mobile={mobile}
                 getRemitterStatus={getRemitterStatus}
                 apiEnd={
@@ -720,9 +756,12 @@ const MoneyTransferView = () => {
                     : ApiEndpoints.DMT2_ADD_REM
                 }
                 view="moneyTransfer"
+                dmtValue={dmtValue}
                 setAddNewRem={setAddNewRem}
                 otpRef={otpRefId}
                 setOtpRef={setOtpRefId}
+                remRefKey={remRefKey}
+                setRemRefKey={setRemRefKey}
               />
             )}
             {verifyotp && verifyotp && (
@@ -732,9 +771,27 @@ const MoneyTransferView = () => {
                 view="moneyTransfer"
                 verifyotp={verifyotp}
                 setVerifyotp={setVerifyotp}
-                apiEnd={ApiEndpoints.VALIDATE_OTP}
+                apiEnd={
+                  dmtValue == "dmt2"
+                    ? ApiEndpoints.DMT2_REGISTER_REM
+                    : ApiEndpoints.VALIDATE_OTP
+                }
                 otpRefId={otpRefId}
                 setOtpRefId={setOtpRefId}
+                dmtValue={dmtValue}
+                dmr2RemRes={dmr2RemRes}
+              />
+            )}
+
+            {openRemKyc && dmtValue == "dmt2" && (
+              <RemitterKyc
+                open={openRemKyc}
+                onClose={handleCloseKycModal}
+                remRefKey={remRefKey}
+                rem_mobile={mobile}
+                dmtValue={dmtValue}
+                setVerifyotp={setVerifyotp}
+                setDmr2RemRes={setDmr2RemRes}
               />
             )}
           </div>

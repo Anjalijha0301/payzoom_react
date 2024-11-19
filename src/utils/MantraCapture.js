@@ -14,8 +14,19 @@ export function GetMFS100Info(onSuccess, onFailed) {
   return GetMFS100Client("info", onSuccess, onFailed);
 }
 
+// export function CaptureFinger(rdport, onSuccess, onFailed) {
+//   return PostMFS100Client("capture", rdport, onSuccess, onFailed);
+// }
+
 export function CaptureFinger(rdport, onSuccess, onFailed) {
   return PostMFS100Client("capture", rdport, onSuccess, onFailed);
+}
+
+export function CaptureFingerDmt1(rdport, onSuccess, onFailed) {
+  return PostMFS100ClientDmt1("capture", rdport, onSuccess, onFailed);
+}
+export function CaptureFingerDmt2(rdport, onSuccess, onFailed) {
+  return PostMFS100ClientDmt2("capture", rdport, onSuccess, onFailed);
 }
 export function CaptureFingerAeps2(rdport, onSuccess, onFailed) {
   return PostMFS100ClientAeps2("capture", rdport, onSuccess, onFailed);
@@ -24,13 +35,115 @@ export function CaptureFingerTest(rdport, onSuccess, onFailed) {
   return PostMFS100ClientTest("capture", rdport, onSuccess, onFailed);
 }
 
+// function PostMFS100Client(method, rdport, onSuccess, onFailed) {
+//   var res;
+//   var XML =
+//     // '<?xml version="1.0"?> <PidOptions ver="1.0"> <Opts fCount="1" fType="2" iCount="0" pCount="0" pgCount="2" format="0"   pidVer="2.0" timeout="10000" pTimeout="20000" wadh="TF/lfPuh1n4ZY1xizYpqikIBm+gv65r51MFNek4uwNw=" posh="UNKNOWN" env="PP" /> <CustOpts><Param name="mantrakey" value="" /></CustOpts> </PidOptions>';
+//     '<PidOptions ver="1.0"><Opts fCount="1" fType="2" format="0" pidVer="2.0" timeout="30000" otp="" posh="UNKNOWN" env="P" wadh="E0jzJ/P8UopUHAieZn8CKqS4WPMi5ZSYXgfnlfkWjrc="/></PidOptions>';
+//   $.support.cors = true;
+//   var httpStaus = false;
+//   console.log("wadh",XML);
+//   $.ajax({
+//     type: "CAPTURE",
+//     async: onSuccess,
+//     crossDomain: true,
+//     //url: uri + method,
+//     url: primaryUrl + rdport + "/rd/" + method,
+//     //contentType: "application/json; charset=utf-8",
+//     data: XML,
+//     dataType: "text",
+//     processData: false,
+//     success: function (data) {
+//       httpStaus = true;
+//       res = { httpStaus: httpStaus, data: data };
+//       if (onSuccess) onSuccess(res);
+//     },
+//     error: function (jqXHR, ajaxOptions, thrownError) {
+//       // console.log(thrownError);
+//       //res = { httpStaus: httpStaus, err: getHttpError(jqXHR) };
+//       if (onFailed) onFailed(thrownError);
+//     },
+//   });
+//   return res;
+// }
 function PostMFS100Client(method, rdport, onSuccess, onFailed) {
   var res;
   var XML =
-    // '<?xml version="1.0"?> <PidOptions ver="1.0"> <Opts fCount="1" fType="2" iCount="0" pCount="0" pgCount="2" format="0"   pidVer="2.0" timeout="10000" pTimeout="20000" wadh="TF/lfPuh1n4ZY1xizYpqikIBm+gv65r51MFNek4uwNw=" posh="UNKNOWN" env="PP" /> <CustOpts><Param name="mantrakey" value="" /></CustOpts> </PidOptions>';
-    '<PidOptions ver="1.0"><Opts fCount="1" fType="2" format="0" pidVer="2.0" timeout="30000" otp="" posh="UNKNOWN" env="P" /></PidOptions>';
+  //   '<PidOptions ver="1.0"><Opts fCount="1" fType="2" format="0" pidVer="2.0" timeout="30000" otp="" posh="UNKNOWN" env="P" wadh="E0jzJ/P8UopUHAieZn8CKqS4WPMi5ZSYXgfnlfkWjrc="/></PidOptions>';
+    '<PidOptions ver="1.0"><Opts fCount="1" fType="2" format="0" pidVer="2.0" timeout="30000" otp="" posh="UNKNOWN" env="P"/></PidOptions>';
+
+  // Log the XML to check the wadh value
+  console.log("Request aeps:", XML);
+    
   $.support.cors = true;
   var httpStaus = false;
+  
+  $.ajax({
+    type: "CAPTURE",
+    async: onSuccess,
+    crossDomain: true,
+    url: primaryUrl + rdport + "/rd/" + method,
+    data: XML,
+    dataType: "text",
+    processData: false,
+    success: function (data) {
+      console.log("Request Success: ", data);  // Log server response
+      httpStaus = true;
+      res = { httpStaus: httpStaus, data: data };
+      if (onSuccess) onSuccess(res);
+    },
+    error: function (jqXHR, ajaxOptions, thrownError) {
+      console.log("Request Error: ", thrownError);  // Log the error
+      if (onFailed) onFailed(thrownError);
+    },
+  });
+
+  return res;
+}
+
+function PostMFS100ClientDmt1(method, rdport, onSuccess, onFailed) {
+  var res;
+  var XML =
+    '<PidOptions ver="1.0"><Opts fCount="1" fType="2" format="0" pidVer="2.0" timeout="30000" otp="" posh="" env="P" wadh="E0jzJ/P8UopUHAieZn8CKqS4WPMi5ZSYXgfnlfkWjrc="/></PidOptions>';
+    
+  // Log the XML to check the wadh value
+  console.log("Request dmt1:", XML);
+    
+  $.support.cors = true;
+  var httpStaus = false;
+  
+  $.ajax({
+    type: "CAPTURE",
+    async: onSuccess,
+    crossDomain: true,
+    url: primaryUrl + rdport + "/rd/" + method,
+    data: XML,
+    dataType: "text",
+    processData: false,
+    success: function (data) {
+      console.log("Request Success: ", data);  // Log server response
+      httpStaus = true;
+      res = { httpStaus: httpStaus, data: data };
+      if (onSuccess) onSuccess(res);
+    },
+    error: function (jqXHR, ajaxOptions, thrownError) {
+      console.log("Request Error: ", thrownError);  // Log the error
+      if (onFailed) onFailed(thrownError);
+    },
+  });
+
+  return res;
+}
+function PostMFS100ClientDmt2(method, rdport, onSuccess, onFailed) {
+  var res;
+  var XML =
+  '<PidOptions ver="1.0"><Opts env="P" fCount="1" fType="2" iCount="0" format="0" pCount="0" pidVer="2.0" timeout="15000" wadh="18f4CEiXeXcfGXvgWA/blxD+w2pw7hfQPY45JMytkPw=" posh=""/></PidOptions>';
+  console.log("Request XML dmt2:", XML);
+
+    // '<PidOptions ver="1.0"><Opts fCount="1" fType="2" format="0" pidVer="2.0" timeout="30000" otp="" posh="UNKNOWN" env="P" /></PidOptions>';
+  $.support.cors = true;
+  var httpStaus = false;
+
   $.ajax({
     type: "CAPTURE",
     async: onSuccess,
@@ -58,8 +171,11 @@ function PostMFS100ClientAeps2(method, rdport, onSuccess, onFailed) {
   var res;
   var XML =
     '<PidOptions ver="1.0"><Opts env="P" fCount="1" fType="2" iCount="0" format="0" pCount="0" pidVer="2.0" timeout="15000" wadh="E0jzJ/P8UopUHAieZn8CKqS4WPMi5ZSYXgfnlfkWjrc=" posh="UNKNOWN" /></PidOptions>';
+  console.log("XML with aeps2:", XML);
+
   $.support.cors = true;
   var httpStaus = false;
+
   $.ajax({
     type: "CAPTURE",
     async: onSuccess,
@@ -90,8 +206,11 @@ function PostMFS100ClientTest(method, rdport, onSuccess, onFailed) {
   var XML =
     '<?xml version="1.0"?> <PidOptions ver="1.0"> <Opts fCount="1" fType="2" iCount="0" pCount="0" pgCount="2" format="0"   pidVer="2.0" timeout="10000" pTimeout="20000" wadh="TF/lfPuh1n4ZY1xizYpqikIBm+gv65r51MFNek4uwNw=" posh="UNKNOWN" env="P" /> <CustOpts><Param name="mantrakey" value="" /></CustOpts> </PidOptions>';
   // '<PidOptions ver="1.0"><Opts fCount="1" fType="2" format="0" pidVer="2.0" timeout="30000" otp="" posh="UNKNOWN" env="P" /></PidOptions>';
+  
+  console.log("XML with nepal:", XML);
   $.support.cors = true;
   var httpStaus = false;
+
   $.ajax({
     type: "CAPTURE",
     async: onSuccess,
@@ -223,6 +342,110 @@ export async function GetMFS100InfoLoad(
   );
 }
 
+// export function CaptureFingerPrint(rdport, onSuccess, onFailed) {
+//   setTimeout(function () {
+//     CaptureFinger(
+//       rdport,
+//       (res) => {
+//         if (res.httpStaus) {
+//           var $doc = $.parseXML(res.data);
+//           console.log("second data=> ", res);
+//           var score = parseInt(
+//             $($doc).find("PidData").find("Resp").attr("qScore")
+//           );
+
+//           var quality = "";
+//           if (score < 41) {
+//             quality = "Poor";
+//           } else if (score > 40 && score < 56) {
+//             quality = "Average";
+//           } else if (score > 55 && score < 70) {
+//             quality = "Good";
+//           } else {
+//             quality = "Very Good";
+//           }
+//           if (score > 0) {
+//             // document.getElementById('quality').innerHTML = 'Quality: ' + score + '% ' + quality;
+//             // $('#pidDataType').val($($doc).find('PidData').find('Data').attr('type'));
+//             // $('#pidData').val($($doc).find('PidData').find('Data').text());
+//             // $('#ci').val($($doc).find('PidData').find('Skey').attr('ci'));
+//             // $('#dc').val($($doc).find('PidData').find('DeviceInfo').attr('dc'));
+//             // $('#dpId').val($($doc).find('PidData').find('DeviceInfo').attr('dpId'));
+//             // $('#errCode').val($($doc).find('PidData').find('Resp').attr('errCode'));
+//             // $('#errInfo').val($($doc).find('PidData').find('Resp').attr('errInfo'));
+//             // $('#fCount').val($($doc).find('PidData').find('Resp').attr('fCount'));
+//             // $('#tType').val($($doc).find('PidData').find('Resp').attr('fType'));
+//             // $('#hmac').val($($doc).find('PidData').find('Hmac').text());
+//             // $('#iCount').val(0);
+//             // $('#mc').val($($doc).find('PidData').find('DeviceInfo').attr('mc'));
+//             // $('#mi').val($($doc).find('PidData').find('DeviceInfo').attr('mi'));
+//             // $('#nmPoints').val($($doc).find('PidData').find('Resp').attr('nmPoints'));
+//             // $('#pCount').val(0);
+//             // $('#pType').val();
+//             // $('#qScore').val($($doc).find('PidData').find('Resp').attr('qScore'));
+//             // $('#rdsId').val($($doc).find('PidData').find('DeviceInfo').attr('rdsId'));
+//             // $('#rdsVer').val($($doc).find('PidData').find('DeviceInfo').attr('rdsVer'));
+//             // $('#sessionKey').val($($doc).find('PidData').find('Skey').text());
+//             // var paramSr = $($doc).find('PidData').find('DeviceInfo').find('additional_info').find('Param')[0];
+//             // $('#srno').val($(paramSr).attr('value'));
+//             // $('#fingerprint').attr('src', '/img/scangreen.jpg');
+//             let paramSr = $($doc)
+//               .find("PidData")
+//               .find("DeviceInfo")
+//               .find("additional_info")
+//               .find("Param")[0];
+//             let sysId = $($doc)
+//               .find("PidData")
+//               .find("DeviceInfo")
+//               .find("additional_info")
+//               .find("Param")[1];
+//             // console.log("paramSr=> ", paramSr);
+//             // console.log("sysId=> ", sysId);
+//             let data = {
+//               score: score,
+//               quality: quality,
+//               type: $($doc).find("PidData").find("Data").attr("type"),
+//               pidData: $($doc).find("PidData").find("Data").text(),
+//               cI: $($doc).find("PidData").find("Skey").attr("ci"),
+//               dC: $($doc).find("PidData").find("DeviceInfo").attr("dc"),
+//               dpId: $($doc).find("PidData").find("DeviceInfo").attr("dpId"),
+//               errInfo: $($doc).find("PidData").find("Resp").attr("errInfo"),
+//               fCount: $($doc).find("PidData").find("Resp").attr("fCount"),
+//               hMac: $($doc).find("PidData").find("Hmac").text(),
+//               mC: $($doc).find("PidData").find("DeviceInfo").attr("mc"),
+//               mI: $($doc).find("PidData").find("DeviceInfo").attr("mi"),
+//               nmPoints: $($doc).find("PidData").find("Resp").attr("nmPoints"),
+//               pidDataType: $($doc).find("PidData").find("Data").attr("type"),
+//               qScore: $($doc).find("PidData").find("Resp").attr("qScore"),
+//               rdsId: $($doc).find("PidData").find("DeviceInfo").attr("rdsId"),
+//               rdsVer: $($doc).find("PidData").find("DeviceInfo").attr("rdsVer"),
+//               sessionKey: $($doc).find("PidData").find("Skey").text(),
+//               srno: $(paramSr).attr("value"),
+//               sysId: $(sysId).attr("value"),
+//             };
+//             // console.log("$doc=> ", $doc);
+//             // console.log("ready data=> ", JSON.stringify(data));
+//             onSuccess("Quality: " + score + "% " + quality, data);
+//           } else {
+//             // $('#fingerprint').attr('src', '/img/scanred.jpg');
+//             // swal({
+//             // 	title: 'Device Status',
+//             // 	html: $($doc).find('PidData').find('Resp').attr('errInfo')
+//             // })
+//             onFailed($($doc).find("PidData").find("Resp").attr("errInfo"));
+//           }
+//         }
+//       },
+//       (err) => {
+
+//         console.log("manthra error", err);
+//         onFailed(err);
+//       }
+//     );
+//   }, 100);
+// }
+
+
 export function CaptureFingerPrint(rdport, onSuccess, onFailed) {
   setTimeout(function () {
     CaptureFinger(
@@ -230,6 +453,145 @@ export function CaptureFingerPrint(rdport, onSuccess, onFailed) {
       (res) => {
         if (res.httpStaus) {
           var $doc = $.parseXML(res.data);
+          console.log("second data=> ", res);
+          var score = parseInt(
+            $($doc).find("PidData").find("Resp").attr("qScore")
+          );
+
+          var quality = "";
+          if (score < 41) {
+            quality = "Poor";
+          } else if (score > 40 && score < 56) {
+            quality = "Average";
+          } else if (score > 55 && score < 70) {
+            quality = "Good";
+          } else {
+            quality = "Very Good";
+          }
+          if (score > 0) {
+            let paramSr = $($doc)
+              .find("PidData")
+              .find("DeviceInfo")
+              .find("additional_info")
+              .find("Param")[0];
+            let sysId = $($doc)
+              .find("PidData")
+              .find("DeviceInfo")
+              .find("additional_info")
+              .find("Param")[1];
+            let data = {
+              score: score,
+              quality: quality,
+              type: $($doc).find("PidData").find("Data").attr("type"),
+              pidData: $($doc).find("PidData").find("Data").text(),
+              cI: $($doc).find("PidData").find("Skey").attr("ci"),
+              dC: $($doc).find("PidData").find("DeviceInfo").attr("dc"),
+              dpId: $($doc).find("PidData").find("DeviceInfo").attr("dpId"),
+              errInfo: $($doc).find("PidData").find("Resp").attr("errInfo"),
+              fCount: $($doc).find("PidData").find("Resp").attr("fCount"),
+              hMac: $($doc).find("PidData").find("Hmac").text(),
+              mC: $($doc).find("PidData").find("DeviceInfo").attr("mc"),
+              mI: $($doc).find("PidData").find("DeviceInfo").attr("mi"),
+              nmPoints: $($doc).find("PidData").find("Resp").attr("nmPoints"),
+              pidDataType: $($doc).find("PidData").find("Data").attr("type"),
+              qScore: $($doc).find("PidData").find("Resp").attr("qScore"),
+              rdsId: $($doc).find("PidData").find("DeviceInfo").attr("rdsId"),
+              rdsVer: $($doc).find("PidData").find("DeviceInfo").attr("rdsVer"),
+              sessionKey: $($doc).find("PidData").find("Skey").text(),
+              srno: $(paramSr).attr("value"),
+              sysId: $(sysId).attr("value"),
+            };
+            onSuccess("Quality: " + score + "% " + quality, data);
+          } else {
+            onFailed($($doc).find("PidData").find("Resp").attr("errInfo"));
+          }
+        }
+      },
+      (err) => {
+        console.log("manthra error", err);
+        onFailed(err);
+      }
+    );
+  }, 100);
+}
+
+export function CaptureFingerPrintDmt1(rdport, onSuccess, onFailed) {
+  setTimeout(function () {
+    CaptureFingerDmt1(
+      rdport,
+      (res) => {
+        if (res.httpStaus) {
+          var $doc = $.parseXML(res.data);
+          console.log("second data=> ", res);
+          var score = parseInt(
+            $($doc).find("PidData").find("Resp").attr("qScore")
+          );
+
+          var quality = "";
+          if (score < 41) {
+            quality = "Poor";
+          } else if (score > 40 && score < 56) {
+            quality = "Average";
+          } else if (score > 55 && score < 70) {
+            quality = "Good";
+          } else {
+            quality = "Very Good";
+          }
+          if (score > 0) {
+            let paramSr = $($doc)
+              .find("PidData")
+              .find("DeviceInfo")
+              .find("additional_info")
+              .find("Param")[0];
+            let sysId = $($doc)
+              .find("PidData")
+              .find("DeviceInfo")
+              .find("additional_info")
+              .find("Param")[1];
+            let data = {
+              score: score,
+              quality: quality,
+              type: $($doc).find("PidData").find("Data").attr("type"),
+              pidData: $($doc).find("PidData").find("Data").text(),
+              cI: $($doc).find("PidData").find("Skey").attr("ci"),
+              dC: $($doc).find("PidData").find("DeviceInfo").attr("dc"),
+              dpId: $($doc).find("PidData").find("DeviceInfo").attr("dpId"),
+              errInfo: $($doc).find("PidData").find("Resp").attr("errInfo"),
+              fCount: $($doc).find("PidData").find("Resp").attr("fCount"),
+              hMac: $($doc).find("PidData").find("Hmac").text(),
+              mC: $($doc).find("PidData").find("DeviceInfo").attr("mc"),
+              mI: $($doc).find("PidData").find("DeviceInfo").attr("mi"),
+              nmPoints: $($doc).find("PidData").find("Resp").attr("nmPoints"),
+              pidDataType: $($doc).find("PidData").find("Data").attr("type"),
+              qScore: $($doc).find("PidData").find("Resp").attr("qScore"),
+              rdsId: $($doc).find("PidData").find("DeviceInfo").attr("rdsId"),
+              rdsVer: $($doc).find("PidData").find("DeviceInfo").attr("rdsVer"),
+              sessionKey: $($doc).find("PidData").find("Skey").text(),
+              srno: $(paramSr).attr("value"),
+              sysId: $(sysId).attr("value"),
+            };
+            onSuccess("Quality: " + score + "% " + quality, data);
+          } else {
+            onFailed($($doc).find("PidData").find("Resp").attr("errInfo"));
+          }
+        }
+      },
+      (err) => {
+        console.log("manthra error", err);
+        onFailed(err);
+      }
+    );
+  }, 100);
+}
+export function CaptureFingerPrintDmt2(rdport, onSuccess, onFailed) {
+  setTimeout(function () {
+    CaptureFingerDmt2(
+      rdport,
+      (res) => {
+        if (res.httpStaus) {
+          var $doc = $.parseXML(res.data);
+          var $doc2 = res.data;
+
           console.log("second data=> ", res);
           var score = parseInt(
             $($doc).find("PidData").find("Resp").attr("qScore")
@@ -303,8 +665,9 @@ export function CaptureFingerPrint(rdport, onSuccess, onFailed) {
               sessionKey: $($doc).find("PidData").find("Skey").text(),
               srno: $(paramSr).attr("value"),
               sysId: $(sysId).attr("value"),
+              doc2:$doc2,
             };
-            // console.log("$doc=> ", $doc);
+            console.log("data in mfs=> ", data);
             // console.log("ready data=> ", JSON.stringify(data));
             onSuccess("Quality: " + score + "% " + quality, data);
           } else {
@@ -318,6 +681,8 @@ export function CaptureFingerPrint(rdport, onSuccess, onFailed) {
         }
       },
       (err) => {
+
+        console.log("manthra error", err);
         onFailed(err);
       }
     );

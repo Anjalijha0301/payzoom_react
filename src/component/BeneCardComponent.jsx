@@ -13,6 +13,7 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 // import { apiErrorToast, okSuccessToast } from "../utils/ToastUtil";
 // import VerifyOtpLogin from "../modals/VerifyOtpLogin";
 import PortBeneficiaries from "../modals/PortBeneficiaries";
+import RetMoneyTransferModal from "../modals/RetMoneyTransferModal";
 
 const BeneCardComponent = ({
   ben,
@@ -195,7 +196,7 @@ const BeneCardComponent = ({
               }
               remDailyLimit={remitterStatus?.limitDetails?.availableDailyLimit}
             />
-            <RetExpresTransferModal
+            <RetMoneyTransferModal
               type="IMPS"
               ben={ben}
               rem_number={mobile && mobile}

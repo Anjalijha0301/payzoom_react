@@ -10,6 +10,7 @@ import {
   CircularProgress,
   Divider,
   InputAdornment,
+  IconButton,
 } from "@mui/material";
 import ModalHeader from "./ModalHeader";
 import ModalFooter from "./ModalFooter";
@@ -33,9 +34,11 @@ import Spinner from "../commons/Spinner";
 import ConfirmationModal from "./ConfirmationModal";
 // import { useEffect } from "react";
 import { validateApiCall } from "../utils/LastApiCallChecker";
+import { secondaryColor } from "../theme/setThemeColor";
 import ApiEndpoints from "../network/ApiEndPoints";
+import Mount from "../component/Mount";
 
-const RetExpresTransferModal = ({
+const RetMoneyTransferModal = ({
   type,
   ben,
   rem_number,
@@ -46,10 +49,6 @@ const RetExpresTransferModal = ({
   apiEnd,
   dmtValue,
 }) => {
-  // console.log("ben", ben);
-  // console.log("view", view);
-  // console.log("type", type);
-  // console.log("rem_details", rem_details);
   const [open, setOpen] = useState(false);
   const [request, setRequest] = useState(false);
   const [mpin, setMpin] = useState("");
@@ -66,9 +65,10 @@ const RetExpresTransferModal = ({
   const loc = authCtx.location && authCtx.location;
   // const [ifConfirmed, setIfConfirmed] = useState(false);
   const [openConfirm, setOpenConfirm] = React.useState(false);
-  const [stateresp, setStateresp] = useState("");
   const [isOtpShow, setIsOtpShow] = useState(false);
   const [remOtp, setRemOtp] = useState();
+  const [stateresp, setStateresp] = useState("");
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -90,27 +90,16 @@ const RetExpresTransferModal = ({
     setArrAmtRes([]);
     setOnComplete(false);
     setMpin("");
-    setIsOtpShow(false);
     setErr("");
     setAmount("");
+    setIsOtpShow(false);
+    setStateresp("");
     setRemOtp("");
-  };
-  const handleOtpChange = (event) => {
-    const value = event.target.value;
-
-    // Prevent input if it's not numeric
-    if (/[^0-9]/.test(value)) {
-      return;
-    }
-
-    // Limit the OTP length to 6 and ensure it's at least 4
-    if (value.length <= 6) {
-      setErr(""); // Clear error if length is valid
-      setRemOtp(value); // Update OTP value
-    }
   };
   // express tranfer super transfer function
   const handleSubmit = (event) => {
+    console.log("im indside apicall 3");
+
     event.preventDefault();
     if (openConfirm) setOpenConfirm(false);
     if (amount === "") {
@@ -138,9 +127,8 @@ const RetExpresTransferModal = ({
         ben_name: ben.bene_name ? ben.bene_name : ben.name,
         type: type,
         pf: "WEB",
-        otp:remOtp,
-        otp_ref:stateresp,
         mpin: mpin,
+        otp: remOtp,
         pipe:
           rem_details.bank1_limit !== 0
             ? "bank1"
@@ -211,33 +199,10 @@ const RetExpresTransferModal = ({
       }
     }
   };
-  const sendOtpMt = () => {
-    console.log("im indside apicall");
-    const data = {
-      number: rem_number && rem_number,
-      amount: amount && amount,
-      ben_id: ben.benid,
-      latitude: loc.lat,
-      longitude: loc.long,
-      type: type,
-      pf: "WEB",
-    };
-    postJsonData(
-    
-        ApiEndpoints.OTP_EXP,
-      data,
-      setRequest,
-      (res) => {
-        console.log("reeeees", res);
-        setStateresp(res?.data?.data);
-        setIsOtpShow(true);
-      },
-      (err) => {
-        console.log("errrrrr", err);
-      }
-    );
-  };
+
   const handleSubmitMoneyTransfer = (event) => {
+    console.log("im indside apicall 2");
+
     event.preventDefault();
     if (openConfirm) setOpenConfirm(false);
     if (amount === "") {
@@ -292,9 +257,10 @@ const RetExpresTransferModal = ({
             type: type,
             pf: "WEB",
             mpin: mpin,
-          
-            rem_type: "NONKYC",
+            otp: remOtp,
+            stateresp: stateresp,
 
+            rem_type: "NONKYC",
             kyc: limit_per_txn && limit_per_txn * 1 > 5000 ? 1 : 0,
             pipe:
               rem_details.bank1_limit !== 0
@@ -317,7 +283,7 @@ const RetExpresTransferModal = ({
               postData,
               // on partial success
               (index, res) => {
-                // console.log(partSuccess => ${index} => ${JSON.stringify(res)});
+                // console.log(`partSuccess => ${index} => ${JSON.stringify(res)}`);
                 setArrAmtRes([...arrData]);
                 // console.log("index : " + res);
               },
@@ -389,6 +355,8 @@ const RetExpresTransferModal = ({
   };
 
   const handleOpenVerify = () => {
+    console.log("im indside apicall 1");
+
     let amt = parseInt(amount && amount);
     if (view === "Money Transfer" && (amt < 2 || amt > 25000)) {
       setErr("");
@@ -414,62 +382,104 @@ const RetExpresTransferModal = ({
   };
 
   // un-used for now
-  const handleSubmitMoneyTransferWithoutLimit = (event) => {
-    event.preventDefault();
-    if (amount === "") {
-      setErr("");
-      const error = {
-        message: "Amount required",
-      };
-      setErr(error);
-    } else if (mpin === "") {
-      setErr("");
-      const error = {
-        message: "MPIN required",
-      };
-      setErr(error);
-    } else {
-      const data = {
-        number: rem_number && rem_number,
-        ben_acc: ben.account,
-        ben_id: ben.id,
-        ifsc: ben.ifsc,
-        latitude: loc.lat,
-        longitude: loc.long,
-        ben_name: ben.name,
-        type: type,
-        pf: "WEB",
-        mpin: mpin,
-        amount: amount,
-        rem_type: "KYC",
-        kyc: limit_per_txn && limit_per_txn * 1 > 5000 ? 1 : 0,
-      };
-      console.log("data without spilit", data);
-      // postJsonData(
-      //   ApiEndpoints.DMR_MONEY_TRANSFER,
-      //   data,
-      //   setRequest,
-      //   (res) => {
-      //     getRecentData();
-      //     okSuccessToast(res.data.message);
-      //     handleClose();
-      //   },
-      //   (error) => {
-      //     if (error && error) {
-      //       if (error.response.data.message === "Invalid M Pin") {
-      //         setErr(error.response.data);
-      //       } else {
-      //         getRecentData();
-      //         setErr("");
-      //         handleClose();
-      //         apiErrorToast(error);
-      //       }
-      //     }
-      //   }
-      // );
+  // const handleSubmitMoneyTransferWithoutLimit = (event) => {
+  //   event.preventDefault();
+  //   if (amount === "") {
+  //     setErr("");
+  //     const error = {
+  //       message: "Amount required",
+  //     };
+  //     setErr(error);
+  //   } else if (mpin === "") {
+  //     setErr("");
+  //     const error = {
+  //       message: "MPIN required",
+  //     };
+  //     setErr(error);
+  //   } else {
+  //     const data = {
+  //       number: rem_number && rem_number,
+  //       ben_acc: ben.account,
+  //       ben_id: ben.id,
+  //       ifsc: ben.ifsc,
+  //       latitude: loc.lat,
+  //       longitude: loc.long,
+  //       ben_name: ben.name,
+  //       type: type,
+  //       pf: "WEB",
+  //       mpin: mpin,
+  //       amount: amount,
+  //       rem_type: "KYC",
+  //       kyc: limit_per_txn && limit_per_txn * 1 > 5000 ? 1 : 0,
+  //     };
+  //     console.log("data without spilit", data);
+  //     // postJsonData(
+  //     //   ApiEndpoints.DMR_MONEY_TRANSFER,
+  //     //   data,
+  //     //   setRequest,
+  //     //   (res) => {
+  //     //     getRecentData();
+  //     //     okSuccessToast(res.data.message);
+  //     //     handleClose();
+  //     //   },
+  //     //   (error) => {
+  //     //     if (error && error) {
+  //     //       if (error.response.data.message === "Invalid M Pin") {
+  //     //         setErr(error.response.data);
+  //     //       } else {
+  //     //         getRecentData();
+  //     //         setErr("");
+  //     //         handleClose();
+  //     //         apiErrorToast(error);
+  //     //       }
+  //     //     }
+  //     //   }
+  //     // );
+  //   }
+  // };
+  const handleOtpChange = (event) => {
+    const value = event.target.value;
+
+    // Prevent input if it's not numeric
+    if (/[^0-9]/.test(value)) {
+      return;
+    }
+
+    // Limit the OTP length to 6 and ensure it's at least 4
+    if (value.length <= 6) {
+      setErr(""); // Clear error if length is valid
+      setRemOtp(value); // Update OTP value
     }
   };
+  const sendOtpMt = () => {
+    console.log("im indside apicall");
+    const data = {
+      number: rem_number && rem_number,
+      amount: amount && amount,
+      ben_id: ben.benid,
+      latitude: loc.lat,
+      longitude: loc.long,
+      type: type,
+      pf: "WEB",
+    };
+    postJsonData(
+      dmtValue == "dmt3"
+        ? ApiEndpoints.SEND_OTP_DMT3
+        : ApiEndpoints.OTP_PSPRINT,
+      data,
+      setRequest,
+      (res) => {
+        console.log("reeeees", res);
+        setStateresp(res?.data?.stateresp);
+        setIsOtpShow(true);
+      },
+      (err) => {
+        console.log("errrrrr", err);
+      }
+    );
+  };
 
+  console.log("isOtpShow", isOtpShow);
   return (
     <Box
       sx={{
@@ -498,7 +508,7 @@ const RetExpresTransferModal = ({
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} className="sm_modal">
-          <ModalHeader title={view + (`${type}`)} handleClose={handleClose} />
+          <ModalHeader title={view + `(${type})`} handleClose={handleClose} />
           <Box
             component="form"
             id="expMoneyTransfer"
@@ -582,7 +592,7 @@ const RetExpresTransferModal = ({
                 md={12}
                 xs={12}
                 sx={{ mt: 2, display: "flex", justifyContent: "center" }}
-                hidden={onComplete}
+                hidden={onComplete} // Only show this Grid if onComplete is false
               >
                 <FormControl sx={{ width: "74%" }}>
                   <TextField
@@ -627,7 +637,40 @@ const RetExpresTransferModal = ({
                   />
                 </FormControl>
               </Grid>
-              
+              {/* {amount && amount && (
+								<Grid
+									item
+									md={12}
+									xs={12}
+									sx={{
+										display: "contents",
+										mt: 2,
+									}}>
+									<Box
+										sx={{
+											display: "flex",
+											justifyContent: "right",
+											width: "100%",
+										}}>
+										<Button
+											variant="contained"
+											sx={{
+												fontSize: "10px",
+												marginLeft: "5px",
+												background: secondaryColor(),
+												py: 0.3,
+												mt: 1,
+												mr: "60px",
+												color: "#fff",
+											}}
+											onClick={sendOtpMt}
+											className="otp-hover-purple">
+											Send OTP
+										</Button>
+									</Box>
+								</Grid>
+							)} */}
+
               {isOtpShow && (
                 <Grid container sx={{ pt: 1 }}>
                   <Grid
@@ -715,54 +758,6 @@ const RetExpresTransferModal = ({
                   </Grid>
                 </Grid>
               )}
-
-              {/* {amount && amount && (
-                <>
-                  <Grid
-                    item
-                    md={12}
-                    xs={12}
-                    sx={{ display: "flex", justifyContent: "center" }}
-                    hidden={onComplete}
-                  >
-                    <FormControl>
-                      <Typography
-                        sx={{
-                          display: "flex",
-                          justifyContent: "center",
-                        }}
-                      >
-                        Enter M-PIN
-                      </Typography>
-                      <PinInput
-                        length={6}
-                        type="password"
-                        onChange={(value, index) => {
-                          if (err !== "") {
-                            setErr("");
-                          }
-                          setMpin(value);
-                        }}
-                        regexCriteria={/^[0-9]*$/}
-                      />
-                    </FormControl>
-                  </Grid>
-                  <Grid
-                    item
-                    md={12}
-                    xs={12}
-                    sx={{
-                      display: "flex",
-                      justifyContent: "end",
-                      pr: 12,
-                      mt: 1,
-                    }}
-                    hidden={onComplete}
-                  >
-                    <ResetMpin variant="text" />
-                  </Grid>
-                </>
-              )} */}
 
               <Grid
                 item
@@ -1020,4 +1015,4 @@ const RetExpresTransferModal = ({
     </Box>
   );
 };
-export default RetExpresTransferModal;
+export default RetMoneyTransferModal;

@@ -4,9 +4,11 @@ import Modal from "@mui/material/Modal";
 import { FormControl, Grid, TextField } from "@mui/material";
 import ModalHeader from "./ModalHeader";
 import ModalFooter from "./ModalFooter";
-import { apiErrorToast } from "../utils/ToastUtil";
+import { apiErrorToast, okSuccessToast } from "../utils/ToastUtil";
 import { postJsonData } from "../network/ApiController";
 import { useState } from "react";
+import ApiEndpoints from "../network/ApiEndPoints";
+import { useEffect } from "react";
 
 const DmrVrifyNewUser = ({
   rem_mobile,
@@ -17,12 +19,20 @@ const DmrVrifyNewUser = ({
   otpRefId,
   setOtpRefId,
   setVerifyotp,
+  dmtValue,
+  dmr2RemRes
+  
 }) => {
   const [open, setOpen] = useState(true);
   const [request, setRequest] = useState(false);
 
   const [mobile, setMobile] = useState(rem_mobile);
-
+useEffect(() => {
+setOpen(true)
+  return () => {
+  }
+}, [verifyotp])
+console.log("dmr2RemRes----dmr2RemRes",dmr2RemRes);
   const style = {
     position: "absolute",
     top: "50%",
@@ -39,21 +49,36 @@ const DmrVrifyNewUser = ({
   const handleClose = () => {
     setOpen(false);
     setOtpRefId("");
+    setMobile(null)
     setVerifyotp(false);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
+
+    const data = {
+      otp: form.otp.value,
+      ...(view === "expressTransfer"
+        ? { rem_number: rem_mobile }
+        : { otpReference: otpRefId }),
+    };
+
+    const dmt2Data={
+      ...dmr2RemRes,
+      otp: form.otp.value,
+
+    }
+    console.log("he;llo",dmt2Data);
     postJsonData(
-      apiEnd,
-      {
-        otpReference: otpRefId && otpRefId,
-        otp: form.otp.value,
-      },
+      view === "expressTransfer" ? ApiEndpoints.VALIDATE_EXP_OTP : apiEnd,
+      dmtValue=="dmt2"?dmt2Data:data,
       setRequest,
       (res) => {
+        console.log("verify dmt2 remitter-",res?.data?.message);
+        const msg=res?.data?.message?res?.data?.message:"Remitter Found"
+        okSuccessToast("SUCCESS",msg)
         if (getRemitterStatus) {
-          getRemitterStatus(mobile);
+          getRemitterStatus(rem_mobile);
         }
         handleClose();
       },
@@ -62,6 +87,7 @@ const DmrVrifyNewUser = ({
       }
     );
   };
+
   return (
     <Box
       sx={{
@@ -96,6 +122,7 @@ const DmrVrifyNewUser = ({
                     size="small"
                     required
                     value={mobile}
+                    disabled={rem_mobile?true:false}
                     inputProps={{ maxLength: "10" }}
                     onChange={(e) => {
                       setMobile(e.target.value);

@@ -1,6 +1,9 @@
-export const BASE_URL = "https://api.PaisaKart.in/";
+export const BASE_URL = "https://api.payzoom.co.in/";
+// export const BASE_URL = "https://api.impsguru.com/";
+
 // export const BASE_URL = "https://uat.impsguru.com/";
 // export const BASE_URL = "http://192.168.1.14/impsguru-php/";
+
 
 const ApiEndpoints = {
   COOKIE: "sanctum/csrf-cookie",
@@ -48,12 +51,14 @@ const ApiEndpoints = {
   GET_WEBHOOK: "admin/getWebHooks",
   GET_ACCOUNT_STATEMENT: "admin/getAccStatement",
   GET_BANK_STATEMENT: "admin/getBankStatement",
+
   ADD_BANK_TXN: "admin/addBankTxn",
   DELETE_BANK_TXN: "admin/deleteBankTxn",
   GET_PENDING_ACCOUNT_TRANSACTION: "admin/getPendingBankTxn",
   GET_STATUS: "admin/checkTxnStatus",
   CHANGE_STATUS: "admin/changeTxnStatus",
   UPDATE_ACCOUNT: "admin/updateAccounts",
+  UPDATE_BANK_STATEMENT: "admin/updateRblBank",
   GET_PLANS: "admin/getPlans",
   BLOCK_UNBLOCK_PLANS: "",
   ADD_PLAN: "admin/createPlan",
@@ -71,6 +76,8 @@ const ApiEndpoints = {
   CREATE_VA: "admin/createVa",
   VIRTUAL_ACCS: "admin/virtualAccounts",
   VIRTUAL_TRANSACTIONS: "admin/vaTransactions",
+  BANK_DETAILS: "admin/bankDepData",
+
   // wallet
   GET_BANK_CREDIT_REQ: "wallet/getBanksForCrRequest",
   CREDIT_REQ: "wallet/createCrRequest",
@@ -83,13 +90,19 @@ const ApiEndpoints = {
   DMR_SETTLEMENTS: "/dmr/settlementBene",
   CHANGE_NAME_OTP: "dmr/updateRemitter",
   CHANGE_NAME: "dmr/validateRemitter",
-  GET_REMMITTER_STATUS: "dmr/getRemitterStatus", // fast response
+  GET_REMMITTER_STATUS: "dmr/getRemitterStatusNew", // fast response
+  GET_REMMITTER_STATUS_OLD: "dmr/getRemitterStatus", // fast response
+
+  GET_REMMITTER_STATUS_EXPRESS: "dmr/remitterStatusExpress", // fast response
+
   DMT2_REM_STAT: "dmr/getRemitterStatusPaySprint",
   REF_REMMITTER_STATUS: "dmr/refreshRemitterStatus", //late response
   REMOVE_BENE: "dmr/removeBeneficiary",
   DMT2_REM_BENE: "dmr/removeBeneficiaryPaySprint",
   BENE_KYC: "dmr/beneKyc",
   VALIDATE_OTP: "dmr/validateRemitter",
+  VALIDATE_EXP_OTP: "dmr/verifyExpRemitter",
+
   VERIFY_REM_UPI: "dmr/verifyRemitterUpi",
   EKYC_INITIATE: "dmr/initiateEkyc",
   GET_REMMITTER_STATUS_ACC: "dmr/getRemitterStatusByAcc",
@@ -99,11 +112,12 @@ const ApiEndpoints = {
   ADD_BENE: "dmr/registerBeneficiary",
   DMT2_ADD_BENE: "dmr/registerBeneficiaryPaySprint",
   ADD_REM: "dmr/registerRemitter",
+  ADD_REM_EXPRESS: "dmr/registerExpRemitter",
+
   DMT2_ADD_REM: "dmr/registerRemitterPaySprint",
   ADD_BENE_EXPRESS: "dmr/addBenExpress",
   REMOVE_BENE_EXPRESS: "dmr/delBenExpress",
 
-  ADD_REM_EXPRESS: "",
   GET_REMITTER_STATUS_UPI: "dmr/remitterStatusUpi",
   REMOVE_BENE_UPI: "dmr/deleteBenUpi",
   ADD_REM_UPI: "dmr/registerRemitterUpi",
@@ -243,5 +257,11 @@ const ApiEndpoints = {
   AEPS2_STATEMENT: "aeps/miniStatementFp",
   AEPS2_STATES: "aeps/getStatesFp",
   AEPS2_BANKS: "aeps/getBanksFp",
+
+  REMITTER_KYC: "dmr/remitterKyc",
+  REMITTER_KYC_dmt2:"dmr/remitterEkycDmt2",
+  DMT2_REGISTER_REM:"dmr/registerRemitterPaySprint",
+  OTP_PSPRINT:"dmr/otpForDmrPsprint"
+
 };
 export default ApiEndpoints;
